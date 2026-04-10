@@ -1,3 +1,4 @@
+class_name Cat
 extends Area2D
 
 @export_enum("brown", "black", "white") var variant: String = "white"

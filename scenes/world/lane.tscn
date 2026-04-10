@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cewu3b80jcgsv"]
 
+[ext_resource type="Script" uid="uid://bgtocqce13hjs" path="res://scripts/lane.gd" id="1_j7e2x"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu0jj"]
 size = Vector2(1280, 6)
 
 [node name="Lane" type="Area2D" unique_id=355228128]
+script = ExtResource("1_j7e2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873663440]
 position = Vector2(647, 0)

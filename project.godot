@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 SwitchManager="*uid://cpu3njve71o7h"
 GameManager="*uid://8hrh6xs0hwlj"
+LaneManager="*uid://bgtocqce13hjs"
 
 [display]
 
