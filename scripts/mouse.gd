@@ -17,6 +17,7 @@ const TILE_SIZE = 16
 var can_move = true
 
 func _ready():
+	add_to_group("mouse")
 	sprite.play("walk_up")
 	add_to_group("mouse")
 	

@@ -16,7 +16,6 @@ func _ready():
 	set_state(GameState.NEW_GAME)
 
 	# Connect to GameManager (autoload)
-	GameManager.game_over.connect(_on_game_over)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

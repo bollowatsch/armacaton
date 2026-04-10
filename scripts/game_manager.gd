@@ -73,6 +73,7 @@ func restart():
 func register_mouse(m : Mouse1):
 	mouse = m
 	
-func _on_game_over():
-	set_state(GameState.GAME_OVER)
+func add_life():
+	lives += 1
+	emit_signal("lives_changed", lives)
 	
