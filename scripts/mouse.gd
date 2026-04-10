@@ -14,8 +14,6 @@ var first_move: bool = true
 
 const TILE_SIZE = 16
 
-var can_move = true
-
 func _ready():
 	add_to_group("mouse")
 	sprite.play("walk_up")
@@ -88,21 +86,14 @@ func move(dir: Vector2):
 	
 	# Check borders
 	if target.x < 0 + sprite_size.x / 2 or target.x + sprite_size.x / 2 > width:
-		print('position %s out of bounds' % [str(position)])
 		return
 	if target.y > height - sprite_size.y / 2:
-		print('position %s out of bounds' % [str(position)])
 		return
 	if target.y <= 0:
 		GameManager.player_reached_goal()
 		return
 	
-	can_move = false
 	position = target
-	
-	# Kurze Pause damit man nicht zu schnell drücken kann
-	#await get_tree().create_timer(0.1).timeout
-	can_move = true
 	
 	# Ziel erreicht?
 	if position.y == 0:
