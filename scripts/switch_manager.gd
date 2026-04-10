@@ -36,11 +36,11 @@ func trigger_switch():
 	# UI benachrichtigen
 	emit_signal("switch_triggered", current_mode)
 
-func input_event_to_vector2(event: InputEvent) -> Vector2:
-	if event.is_action_pressed("ui_up"):    return Vector2.UP
-	if event.is_action_pressed("ui_down"):  return Vector2.DOWN
-	if event.is_action_pressed("ui_left"):  return Vector2.LEFT
-	if event.is_action_pressed("ui_right"): return Vector2.RIGHT
+func get_input_vector() -> Vector2:
+	if Input.is_action_pressed("ui_up"):    return Vector2.UP
+	if Input.is_action_pressed("ui_down"):  return Vector2.DOWN
+	if Input.is_action_pressed("ui_left"):  return Vector2.LEFT
+	if Input.is_action_pressed("ui_right"): return Vector2.RIGHT
 	return Vector2.ZERO
 
 # Wird von mouse.gd aufgerufen

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cxbq8x56ungnc"]
+[gd_scene format=3 uid="uid://c5enq0dmyms04"]
 
-[ext_resource type="Script" path="res://scripts/cat.gd" id="1_che4s"]
+[ext_resource type="Script" uid="uid://b4qqn1lrblfvd" path="res://scripts/cat.gd" id="1_che4s"]
 [ext_resource type="Texture2D" uid="uid://dp5jf2mn4xopq" path="res://assets/cat/cat 1.9.png" id="1_wue6n"]
 [ext_resource type="Texture2D" uid="uid://blln4pl8kndh" path="res://assets/cat/cat 1.png" id="2_bl8ci"]
 [ext_resource type="Texture2D" uid="uid://gr8blij4rjse" path="res://assets/cat/cat 1.6.png" id="3_aysji"]
@@ -297,12 +297,10 @@ radius = 64.12488
 script = ExtResource("1_che4s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1399200998]
-position = Vector2(81.99999, 85.99999)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_mul66")
 animation = &"walk_right_black"
 frame_progress = 0.8597802
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677848560]
-position = Vector2(81, 83)
 shape = SubResource("CircleShape2D_qoplo")

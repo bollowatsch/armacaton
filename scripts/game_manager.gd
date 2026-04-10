@@ -3,7 +3,7 @@ extends Node
 # CONSTANTS
 var LIVES_START: int = 5
 var LEVEL_START: int = 1
-var LEVELS_AVAILABLE: int = 1 
+var LEVELS_AVAILABLE: int = 2
 
 enum State { MENU, PLAYING, DEAD, WIN }
 var state: State = State.MENU
@@ -49,6 +49,7 @@ func player_reached_goal():
 		emit_signal("game_won", level)
 	else:
 		get_tree().call_group("mouse", "respawn")
+		print('respawn')
 
 func go_to_menu():
 	state = State.MENU
