@@ -19,6 +19,9 @@ signal level_changed(new_level)
 signal game_over()
 signal game_won()
 
+func _ready() -> void:
+	state = State.MENU
+
 func start_game():
 	lives = LIVES_START
 	level = LEVEL_START
@@ -38,12 +41,10 @@ func player_died():
 	if lives <= 0:
 		state = State.DEAD
 		mouse.play_dead()
-		go_to_menu_dead()
+		go_to_menu()
 		
 	else:
-		# Spieler respawnen — Signal an mouse.gd
 		mouse.respawn()
-		#get_tree().call_group("mouse", "respawn")
 
 func player_reached_goal():
 	if state != State.PLAYING:
@@ -54,19 +55,13 @@ func player_reached_goal():
 	
 	if level > LEVELS_AVAILABLE:
 		state = State.WIN
-		print("state win")
-		# TODO back to start screen
+		go_to_menu()
 	else:
 		get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % level)
 		mouse.respawn()
 		
 
 func go_to_menu():
-	state = State.MENU
-	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
-
-func go_to_menu_dead():
-	state = State.DEAD
 	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
 
 func restart():
