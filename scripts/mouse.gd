@@ -49,17 +49,17 @@ func _unhandled_input(event):
 func move(dir: Vector2):
 	var target = position + dir * TILE_SIZE
 	
-	# Spielfeldgrenzen prüfen (Spielfeld: 10x8 Tiles)
-	if target.x < 0 or target.x > X_AXIS - TILE_SIZE:
+	# Check borders
+	if target.x < 0 + sprite_size.x / 2 or target.x + sprite_size.x / 2 > X_AXIS:
 		return
-	if target.y < 0 or target.y > Y_AXIS - TILE_SIZE:
+	if target.y > Y_AXIS - sprite_size.y / 2:
 		return
 	
 	can_move = false
 	position = target
 	
 	# Kurze Pause damit man nicht zu schnell drücken kann
-	await get_tree().create_timer(0.1).timeout
+	#await get_tree().create_timer(0.1).timeout
 	can_move = true
 	
 	# Ziel erreicht?
@@ -71,5 +71,5 @@ func respawn():
 	
 	position = Vector2(
 		screen.x / 2 - sprite_size.x / 2,
-		screen.y - sprite_size.y
+		screen.y - sprite_size.y / 2
 	)
