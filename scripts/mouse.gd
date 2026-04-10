@@ -3,27 +3,47 @@ extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-# Rastergröße: Spieler springt immer um genau 1 Tile
-const TILE_SIZE = 8
 var width: float 
 var height: float 
 var sprite_size: Vector2
 
+const MOVE_DELAY = 0.15
+var move_timer: float = 0.0
+var first_move: bool = true
+
+const TILE_SIZE = 16
+
 var can_move = true
 
 func _ready():
-	sprite.play("walk")
+	sprite.play("walk_up")
 	add_to_group("mouse")
 	
 	width = get_viewport_rect().size.x
 	height = get_viewport_rect().size.y
 	
 	var frames = $AnimatedSprite2D.sprite_frames
-	sprite_size = frames.get_frame_texture("idle", 0).get_size()
+	sprite_size = frames.get_frame_texture("waits", 0).get_size()
 	respawn()
 	
+func _process(delta: float) -> void:
+	var raw = get_input_vector()
+	
+	if raw == Vector2.ZERO:
+		move_timer = 0.0
+		first_move = true
+		return
+	
+	move_timer -= delta
+	
+	if first_move or move_timer <= 0:
+		var direction = SwitchManager.get_mapped_direction(raw)
+		move(direction)
+		move_timer = MOVE_DELAY
+		first_move = false
+	
 func play_walk(): #todo: needs to be triggered via events
-	if sprite.animation != "walk":
+	if sprite.animation != "walk_up":
 		sprite.play("walk")
 
 func play_idle(): #todo: needs to be triggered via events
@@ -33,19 +53,7 @@ func play_idle(): #todo: needs to be triggered via events
 func play_dead(): #todo: needs to be triggered via events
 	sprite.play("dead")
 	
-func _unhandled_input(event):
-	if not can_move:
-		return
 	
-	# SwitchManager gibt die "echte" Richtung zurück
-	# (nach Input-Remapping!)
-	print(event)
-	var input_vector = SwitchManager.input_event_to_vector2(event)
-	var direction = SwitchManager.get_mapped_direction(input_vector)
-	
-	if direction != Vector2.ZERO:
-		move(direction)
-
 func move(dir: Vector2):
 	var target = position + dir * TILE_SIZE
 	
@@ -55,6 +63,9 @@ func move(dir: Vector2):
 		return
 	if target.y > height - sprite_size.y / 2:
 		print('position %s out of bounds' % [str(position)])
+		return
+	if target.y <= 0:
+		GameManager.player_reached_goal()
 		return
 	
 	can_move = false
@@ -73,3 +84,10 @@ func respawn():
 		width / 2,
 		height - sprite_size.y / 2
 	)
+
+func get_input_vector() -> Vector2:
+	if Input.is_action_pressed("ui_up"):    return Vector2.UP
+	if Input.is_action_pressed("ui_down"):  return Vector2.DOWN
+	if Input.is_action_pressed("ui_left"):  return Vector2.LEFT
+	if Input.is_action_pressed("ui_right"): return Vector2.RIGHT
+	return Vector2.ZERO
