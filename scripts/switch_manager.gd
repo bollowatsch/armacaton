@@ -11,6 +11,10 @@ var random_vector: Dictionary
 
 func _process(delta):
 	time_until_switch -= delta
+	
+	var percent = (time_until_switch / last_time_until_switch) * 100.0
+	get_tree().call_group("hud", "update_timer", percent)
+	
 	if time_until_switch <= 0:
 		trigger_switch()
 

@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var switch_timer: ProgressBar = $SwitchTimer
 
 func _ready():
+	add_to_group("hud")
+	
 	GameManager.lives_changed.connect(update_lives)
 	GameManager.level_changed.connect(update_level)
 	
@@ -23,3 +25,4 @@ func update_lives(new_lives: int):
 
 func update_timer(percent: float):
 	switch_timer.value = percent
+	
