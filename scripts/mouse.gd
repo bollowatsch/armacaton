@@ -1,3 +1,4 @@
+class_name Mouse1
 extends Area2D
 # extends CharacterBody2D
 
@@ -23,6 +24,8 @@ func _ready():
 	
 	width = get_viewport_rect().size.x
 	height = get_viewport_rect().size.y
+	
+	GameManager.register_mouse(self)
 	
 	var frames = $AnimatedSprite2D.sprite_frames
 	sprite_size = frames.get_frame_texture("waits", 0).get_size()
@@ -76,8 +79,8 @@ func play_idle(): #todo: needs to be triggered via events
 	if sprite.animation != "idle":
 		sprite.play("idle")
 
-func play_dead(): #todo: needs to be triggered via events
-	sprite.play("dead")
+func play_dead(): #TODO: needs to be adjusted for the scene switch
+	sprite.play("dies_up")
 		
 func move(dir: Vector2):
 	var target = position + dir * TILE_SIZE
