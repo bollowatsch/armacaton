@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_enum("brown", "black", "white") var variant: String
+@export_enum("brown", "black", "white") var variant: String = "white"
 
 var speed := 100.0
 var direction := Vector2.RIGHT
@@ -10,7 +10,7 @@ var size: Vector2
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-func setup(spd: float, dir: Vector2, var_name: String = "white"):
+func setup(spd: float, dir: Vector2, var_name: String):
 	speed = spd
 	direction = dir
 	variant = var_name
@@ -19,7 +19,7 @@ func setup(spd: float, dir: Vector2, var_name: String = "white"):
 func _ready():
 	width = get_viewport_rect().size.x
 	var frames = $AnimatedSprite2D.sprite_frames
-	size = frames.get_frame_texture("walk_right", 0).get_size()
+	size = frames.get_frame_texture("walk_right_white", 0).get_size()
 	update_animation()
 
 func _process(delta):

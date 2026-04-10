@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="armacaton"
-run/main_scene="uid://ci2q6cvw58gio"
+run/main_scene="uid://ddlbvldl0rj5a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://scenes/figures/mouse.tscn"

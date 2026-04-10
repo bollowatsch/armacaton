@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bpfqbhasfubdq"]
+[gd_scene format=3 uid="uid://bugshtj3drjfy"]
 
 [ext_resource type="Script" uid="uid://ch1fhjsxk1nkx" path="res://scripts/mouse.gd" id="1_dwu33"]
 [ext_resource type="Texture2D" uid="uid://drnguiqdleios" path="res://assets/mouse/image-10.png" id="2_4bd2j"]
@@ -133,8 +133,7 @@ script = ExtResource("1_dwu33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1479972416]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_g7fkp")
-animation = &"dies_right"
-frame_progress = 0.56113285
+animation = &"dies_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336859575]
 shape = SubResource("CircleShape2D_a56sk")
