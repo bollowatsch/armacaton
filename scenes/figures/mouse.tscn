@@ -1,7 +1,32 @@
-[gd_scene format=3 uid="uid://bugshtj3drjfy"]
+[gd_scene format=3 uid="uid://bpfqbhasfubdq"]
 
 [ext_resource type="Script" uid="uid://ch1fhjsxk1nkx" path="res://scripts/mouse.gd" id="1_dwu33"]
+[ext_resource type="Texture2D" uid="uid://drnguiqdleios" path="res://assets/mouse/image-10.png" id="2_4bd2j"]
 [ext_resource type="Texture2D" uid="uid://dbrkfanxqt884" path="res://assets/mouse/Rats.png" id="2_p4jw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a56sk"]
+atlas = ExtResource("2_4bd2j")
+region = Rect2(432, 117, 48, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g6g8"]
+atlas = ExtResource("2_4bd2j")
+region = Rect2(480, 117, 48, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo76w"]
+atlas = ExtResource("2_4bd2j")
+region = Rect2(528, 117, 48, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc8lm"]
+atlas = ExtResource("2_4bd2j")
+region = Rect2(432, 163, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wihw5"]
+atlas = ExtResource("2_4bd2j")
+region = Rect2(480, 163, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teb80"]
+atlas = ExtResource("2_4bd2j")
+region = Rect2(528, 163, 48, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwu33"]
 atlas = ExtResource("2_p4jw4")
@@ -33,12 +58,30 @@ region = Rect2(528, 160, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7fkp"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a56sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g6g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo76w")
+}],
 "loop": true,
 "name": &"dies_right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc8lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wihw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teb80")
+}],
 "loop": true,
 "name": &"dies_up",
 "speed": 5.0
@@ -90,8 +133,8 @@ script = ExtResource("1_dwu33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1479972416]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_g7fkp")
-animation = &"walk_up"
-frame_progress = 0.42075953
+animation = &"dies_right"
+frame_progress = 0.56113285
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336859575]
 shape = SubResource("CircleShape2D_a56sk")
