@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_enum("orange", "grey", "white") var variant: String
+@export_enum("brown", "black", "white") var variant: String
 
 var speed := 100.0
 var direction := Vector2.RIGHT
@@ -30,10 +30,12 @@ func _process(delta):
 
 func update_animation():
 	var suffix = ""
-	if variant == "grey":
-		suffix = "_grey"
+	if variant == "brown":
+		suffix = "_brown"
 	elif variant == "white":
 		suffix = "_white"
+	elif variant == "black":
+		suffix = "_black"
 
 	if direction.x != 0:
 		sprite.play("walk_right" + suffix)
