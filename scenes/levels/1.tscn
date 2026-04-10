@@ -1,10 +1,34 @@
 [gd_scene format=4 uid="uid://ddlbvldl0rj5a"]
 
-[ext_resource type="Script" uid="uid://bhg7dophi27b2" path="res://scenes/_dev/test.gd" id="1_1qo4i"]
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="2_rwkk4"]
 
-[node name="World" type="Node2D" unique_id=1193287785]
-script = ExtResource("1_1qo4i")
+[sub_resource type="GDScript" id="GDScript_ie7v7"]
+script/source = "# test_switch.gd  — läuft wenn du F6 drückst
+extends Node
+
+func _ready():
+	# SwitchManager direkt instanzieren ohne Autoload
+	var sm = preload(\"res://scripts/switch_manager.gd\").new()
+	add_child(sm)
+	
+	# Testen:
+	var inp = Vector2.UP
+	
+	print(\"Modus nach Switch: \", sm.current_mode)
+	print(sm.get_mapped_direction(inp))
+	
+	sm.trigger_switch()
+	print(\"Modus nach Switch: \", sm.current_mode)
+	print(sm.get_mapped_direction(inp))
+	
+	sm.trigger_switch()
+	print(\"Modus nach 2. Switch: \", sm.current_mode)
+	print(sm.get_mapped_direction(inp))
+	
+"
+
+[node name="1" type="Node2D" unique_id=1193287785]
+script = SubResource("GDScript_ie7v7")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=736708555]
 position = Vector2(0, -32)
