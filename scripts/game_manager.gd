@@ -6,7 +6,7 @@ var LEVEL_START: int = 1
 var LEVELS_AVAILABLE: int = 2
 
 enum State { MENU, PLAYING, DEAD, WIN }
-var state: State = State.MENU
+var state: State = State.PLAYING
 
 var lives: int
 var level: int
@@ -46,10 +46,12 @@ func player_reached_goal():
 	
 	if level > LEVELS_AVAILABLE:
 		state = State.WIN
+		print("state win")
 		emit_signal("game_won", level)
 	else:
-		get_tree().call_group("mouse", "respawn")
 		print('respawn')
+		get_tree().call_group("mouse", "respawn")
+		
 
 func go_to_menu():
 	state = State.MENU
