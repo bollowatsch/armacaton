@@ -18,3 +18,4 @@ func _ready() -> void:
 	
 func _set_speeds():
 	LaneManager.set_speed_for_lane($Lanes/Lane3, 200.0)
+	LaneManager.set_speed_for_lane($Lanes/Lane2, 200.0)
