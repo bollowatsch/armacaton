@@ -11,19 +11,19 @@ config_version=5
 [application]
 
 config/name="armacaton"
-run/main_scene="res://scenes/figures/mouse.tscn"
+run/main_scene="uid://ddlbvldl0rj5a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SwitchManager="*uid://cpu3njve71o7h"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=920
 window/size/initial_position_type=0
-
-[dotnet]
-
-project/assembly_name="armacaton"
 
 [physics]
 
