@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://ci2q6cvw58gio"]
 
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="1_4lijl"]
+[ext_resource type="Script" uid="uid://bn4fi7w516rx8" path="res://scenes/ui/button.gd" id="2_2h6b0"]
 
 [node name="MainScreen" type="Node2D" unique_id=2050095863]
 
@@ -21,6 +22,7 @@ offset_bottom = 640.0
 theme_override_font_sizes/font_size = 40
 button_mask = 3
 text = "Start"
+script = ExtResource("2_2h6b0")
 
 [node name="Label" type="Label" parent="Screen" unique_id=1109421939]
 offset_left = 416.0
