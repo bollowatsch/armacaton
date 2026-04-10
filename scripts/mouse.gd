@@ -12,6 +12,17 @@ var can_move = true
 func _ready():
 	sprite.play("walk")
 	
+func play_walk(): #todo: needs to be triggered via events
+	if sprite.animation != "walk":
+		sprite.play("walk")
+
+func play_idle(): #todo: needs to be triggered via events
+	if sprite.animation != "idle":
+		sprite.play("idle")
+
+func play_dead(): #todo: needs to be triggered via events
+	sprite.play("dead")
+	
 func _unhandled_input(event):
 	if not can_move:
 		return
