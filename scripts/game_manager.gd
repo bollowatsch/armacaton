@@ -15,8 +15,6 @@ var mouse: Mouse1
 
 signal lives_changed(new_lives)
 signal level_changed(new_level)
-signal game_over()
-signal game_won()
 
 func _ready() -> void:
 	state = State.MENU
@@ -38,6 +36,7 @@ func player_died():
 	if lives <= 0:
 		state = State.DEAD
 		mouse.play_dead()
+		go_to_menu()
 	else:
 		# Spieler respawnen — Signal an mouse.gd
 		mouse.respawn()
@@ -57,12 +56,8 @@ func player_reached_goal():
 		mouse.respawn()
 
 func go_to_menu():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
 
-func restart():
-	start_game()
-	get_tree().change_scene_to_file("res://scenes/levels/1.tscn")
-	
 func register_mouse(m : Mouse1):
 	mouse = m
 	
