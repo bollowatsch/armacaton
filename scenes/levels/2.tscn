@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://3hb3io120ow7"]
 
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="1_mpdjq"]
+[ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="2_6k4c4"]
 
 [node name="2" type="Node2D" unique_id=31887791]
 
@@ -15,3 +16,5 @@ tile_set = ExtResource("1_mpdjq")
 [node name="Obstacles2" type="TileMapLayer" parent="." unique_id=2084279708]
 tile_map_data = PackedByteArray("AAAZAAEAAgEBAAEAAAAZAAIAAgEBAAIAAAAaAAAANQEBAAAAAAAaAAEAAgECAAEAAAAaAAIAAgECAAIAAAAaAAMANQEBAAMAAAAbAAAANQECAAAAAAAbAAIAAgEDAAIAAAAbAAMANQECAAMAAAAcAAEANQEDAAEAAAAcAAIANQEDAAIAAAAYAAEAAgEAAAEAAAAYAAIAAgEAAAIAAAAQAB0AGwEBAAAAAFAQAB4AGwECAAAAAFAPABwAGwEAAAEAAFAPAB0AGwEBAAEAAFAPAB4AGwECAAEAAFAPAB8AGwEDAAEAAFAOABwAGwEAAAIAAFAOAB0AGwEBAAIAAFAOAB4AGwECAAIAAFAOAB8AGwEDAAIAAFANAB0AGwEBAAMAAFANAB4AGwECAAMAAFANAB8AGwEDAAMAAFA=")
 tile_set = ExtResource("1_mpdjq")
+
+[node name="Mouse" parent="." unique_id=278071180 instance=ExtResource("2_6k4c4")]

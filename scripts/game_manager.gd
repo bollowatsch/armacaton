@@ -56,7 +56,7 @@ func player_reached_goal():
 		print("state win")
 		# TODO back to start screen
 	else:
-		print('respawn')
+		get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % level)
 		get_tree().call_group("mouse", "respawn")
 		
 
