@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="armacaton"
+run/main_scene="uid://ddlbvldl0rj5a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SwitchManager="*uid://cpu3njve71o7h"
 
 [display]
 
