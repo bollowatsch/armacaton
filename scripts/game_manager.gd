@@ -12,12 +12,9 @@ var lives: int
 var level: int
 
 var mouse: Mouse1
-var label: ConditionalLabel
 
 signal lives_changed(new_lives)
 signal level_changed(new_level)
-signal game_over()
-signal game_won()
 
 func _ready() -> void:
 	state = State.MENU
@@ -35,14 +32,11 @@ func player_died():
 	
 	lives -= 1
 	emit_signal("lives_changed", lives)
-	print(lives)
-
 	
 	if lives <= 0:
 		state = State.DEAD
 		mouse.play_dead()
 		go_to_menu()
-		
 	else:
 		mouse.respawn()
 
@@ -70,6 +64,3 @@ func restart():
 	
 func register_mouse(m : Mouse1):
 	mouse = m
-	
-func register_label(l: ConditionalLabel):
-	label = l
