@@ -8,11 +8,19 @@ const TILE_SIZE = 8
 const X_AXIS = 1280
 const Y_AXIS = 920
 
-# Verhindert mehrfaches Drücken pro Frame
+const X_START = X_AXIS / 2
+const Y_START = Y_AXIS
+
+var sprite_size: Vector2
 var can_move = true
 
 func _ready():
 	sprite.play("walk")
+	add_to_group("mouse")
+	
+	var frames = $AnimatedSprite2D.sprite_frames
+	sprite_size = frames.get_frame_texture("idle", 0).get_size()
+	respawn()
 	
 func play_walk(): #todo: needs to be triggered via events
 	if sprite.animation != "walk":
@@ -56,5 +64,12 @@ func move(dir: Vector2):
 	
 	# Ziel erreicht?
 	if position.y == 0:
-		pass
-		#GameManager.win() todo
+		GameManager.player_reached_goal()
+
+func respawn():
+	var screen = get_viewport_rect().size
+	
+	position = Vector2(
+		screen.x / 2 - sprite_size.x / 2,
+		screen.y - sprite_size.y
+	)
