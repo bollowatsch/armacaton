@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cxbq8x56ungnc"]
 
+[ext_resource type="Script" uid="uid://b4qqn1lrblfvd" path="res://scripts/cat.gd" id="1_che4s"]
 [ext_resource type="Texture2D" uid="uid://dp5jf2mn4xopq" path="res://assets/cat/cat 1.9.png" id="1_wue6n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_che4s"]
@@ -103,13 +104,15 @@ animations = [{
 radius = 64.12488
 
 [node name="Cat" type="Area2D" unique_id=126695096]
+script = ExtResource("1_che4s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1399200998]
-position = Vector2(-0.99999994, -1.9999999)
+position = Vector2(81.99999, 85.99999)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_mul66")
 animation = &"walk_right"
-frame_progress = 0.83191663
+frame_progress = 0.9530354
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677848560]
+position = Vector2(81, 83)
 shape = SubResource("CircleShape2D_qoplo")
