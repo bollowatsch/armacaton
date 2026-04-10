@@ -4,11 +4,14 @@ extends Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # Rastergröße: Spieler springt immer um genau 1 Tile
-const TILE_SIZE = 64
+const TILE_SIZE = 8
 
 # Verhindert mehrfaches Drücken pro Frame
 var can_move = true
 
+func _ready():
+	sprite.play("walk")
+	
 func _unhandled_input(event):
 	if not can_move:
 		return

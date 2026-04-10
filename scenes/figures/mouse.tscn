@@ -48,7 +48,7 @@ animations = [{
 radius = 12.0415945
 
 [node name="Mouse" type="Area2D" unique_id=278071180]
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 script = ExtResource("1_dwu33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1479972416]
