@@ -1,15 +1,19 @@
 extends Area2D
 
+@export_enum("orange", "grey", "white") var variant: String
+
 var speed := 100.0
 var direction := Vector2.RIGHT
 var width := 0
 var size: Vector2
 
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-func setup(spd: float, dir: Vector2):
+func setup(spd: float, dir: Vector2, var_name: String = "white"):
 	speed = spd
 	direction = dir
+	variant = var_name
 	update_animation()
 
 func _ready():
@@ -25,7 +29,21 @@ func _process(delta):
 		position.x = -(size.x/2.0)
 
 func update_animation():
-	if direction.x > 0:
-		sprite.play("walk_right")
+	var suffix = ""
+	if variant == "grey":
+		suffix = "_grey"
+	elif variant == "white":
+		suffix = "_white"
+
+	if direction.x != 0:
+		sprite.play("walk_right" + suffix)
+		sprite.flip_h = direction.x < 0
+		sprite.flip_v = false
 	else:
-		sprite.play("walk_left")
+		sprite.play("walk_down" + suffix)
+		sprite.flip_h = false
+		sprite.flip_v = direction.y < 0
+	
+#cat in	main dann erzeugen 
+#var cat1 = cat_scene.instantiate()
+#cat1.setup(100.0, Vector2.RIGHT, "brown")
