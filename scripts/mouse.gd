@@ -1,7 +1,7 @@
 extends Area2D
+# extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-# extends CharacterBody2D
 
 # Rastergröße: Spieler springt immer um genau 1 Tile
 const TILE_SIZE = 64
