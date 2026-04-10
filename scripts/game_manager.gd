@@ -49,6 +49,7 @@ func player_reached_goal():
 		emit_signal("game_won", level)
 	else:
 		get_tree().call_group("mouse", "respawn")
+		print('respawn')
 
 func go_to_menu():
 	state = State.MENU
