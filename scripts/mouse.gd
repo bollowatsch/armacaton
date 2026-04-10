@@ -22,6 +22,7 @@ var is_moving: bool = false
 const MOVE_SPEED: float = 300.0  # Pixel pro Sekunde
 
 func _ready():
+	add_to_group("mouse")
 	sprite.play("walk_up")
 	add_to_group("mouse")
 	area_entered.connect(_on_area_entered)
