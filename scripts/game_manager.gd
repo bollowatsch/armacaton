@@ -32,7 +32,9 @@ func player_died():
 	
 	if lives <= 0:
 		state = State.DEAD
-		emit_signal("game_over", level)
+		print("state dead")
+
+		# TODO back to start screen
 	else:
 		# Spieler respawnen — Signal an mouse.gd
 		get_tree().call_group("mouse", "respawn")
@@ -47,7 +49,7 @@ func player_reached_goal():
 	if level > LEVELS_AVAILABLE:
 		state = State.WIN
 		print("state win")
-		emit_signal("game_won", level)
+		# TODO back to start screen
 	else:
 		print('respawn')
 		get_tree().call_group("mouse", "respawn")

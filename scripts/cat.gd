@@ -17,6 +17,7 @@ func setup(spd: float, dir: Vector2, var_name: String):
 	update_animation()
 
 func _ready():
+	add_to_group("cat")
 	width = get_viewport_rect().size.x
 	var frames = $AnimatedSprite2D.sprite_frames
 	size = frames.get_frame_texture("walk_right_white", 0).get_size()
