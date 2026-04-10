@@ -11,6 +11,8 @@ var state: State = State.PLAYING
 var lives: int
 var level: int
 
+var mouse: Mouse1
+
 signal lives_changed(new_lives)
 signal level_changed(new_level)
 signal game_over()
@@ -32,6 +34,7 @@ func player_died():
 	
 	if lives <= 0:
 		state = State.DEAD
+		mouse.play_dead()
 		print("state dead")
 
 		# TODO back to start screen
@@ -62,3 +65,7 @@ func go_to_menu():
 func restart():
 	start_game()
 	get_tree().change_scene_to_file("res://scenes/levels/1.tscn")
+	
+func register_mouse(m : Mouse1):
+	mouse = m
+	
