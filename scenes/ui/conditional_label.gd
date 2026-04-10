@@ -1,4 +1,4 @@
-class_name ConditionalLabel
+class_name Conditional_label
 
 extends Label
 
@@ -14,11 +14,8 @@ func set_state(state: GameState):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_state(GameState.NEW_GAME)
-	GameManager.register_label(self)
 
-func on_game_over():
-	print("game_over")
-	return
+	# Connect to GameManager (autoload)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
