@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4mnvxoncq4ai"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_0mwgc"]
+[ext_resource type="Script" uid="uid://c1s1gm0a7qh3" path="res://scripts/hud.gd" id="1_0mwgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wh2we"]
 font_size = 30
@@ -8,11 +8,11 @@ font_size = 30
 [node name="HUD" type="CanvasLayer" unique_id=1366411508]
 script = ExtResource("1_0mwgc")
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=1459695053]
+[node name="LevelLabel" type="Label" parent="." unique_id=1459695053]
 offset_right = 60.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 50
-text = "Score: 0"
+text = "Level: 1"
 label_settings = SubResource("LabelSettings_wh2we")
 
 [node name="LivesLabel" type="Label" parent="." unique_id=1392501182]
@@ -31,8 +31,9 @@ custom_minimum_size = Vector2(200, 30)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -2.0
-offset_right = 2.0
-offset_bottom = 27.0
+offset_left = -100.0
+offset_top = 5.0
+offset_right = 100.0
+offset_bottom = 35.0
 grow_horizontal = 2
 value = 100.0

@@ -19,6 +19,8 @@ func _ready():
 	sprite.play("walk_up")
 	add_to_group("mouse")
 	
+	area_entered.connect(_on_area_entered)
+	
 	width = get_viewport_rect().size.x
 	height = get_viewport_rect().size.y
 	
@@ -27,20 +29,44 @@ func _ready():
 	respawn()
 	
 func _process(delta: float) -> void:
-	var raw = get_input_vector()
-	
-	if raw == Vector2.ZERO:
-		move_timer = 0.0
-		first_move = true
+	# Frisch gedrückte Taste hat Priorität — sofort reagieren
+	var just_pressed = get_just_pressed_vector()
+	if just_pressed != Vector2.ZERO:
+		var direction = SwitchManager.get_mapped_direction(just_pressed)
+		move(direction)
+		move_timer = MOVE_DELAY
 		return
 	
+	# Gehaltene Taste — nur nach Timer
 	move_timer -= delta
+	if move_timer > 0:
+		return
+	
+	var held = get_held_vector()
+	if held == Vector2.ZERO:
+		first_move = true
+		move_timer = 0.0
+		return
 	
 	if first_move or move_timer <= 0:
-		var direction = SwitchManager.get_mapped_direction(raw)
+		var direction = SwitchManager.get_mapped_direction(held)
 		move(direction)
 		move_timer = MOVE_DELAY
 		first_move = false
+
+func get_just_pressed_vector() -> Vector2:
+	if Input.is_action_just_pressed("ui_up"):    return Vector2.UP
+	if Input.is_action_just_pressed("ui_down"):  return Vector2.DOWN
+	if Input.is_action_just_pressed("ui_left"):  return Vector2.LEFT
+	if Input.is_action_just_pressed("ui_right"): return Vector2.RIGHT
+	return Vector2.ZERO
+
+func get_held_vector() -> Vector2:
+	if Input.is_action_pressed("ui_up"):    return Vector2.UP
+	if Input.is_action_pressed("ui_down"):  return Vector2.DOWN
+	if Input.is_action_pressed("ui_left"):  return Vector2.LEFT
+	if Input.is_action_pressed("ui_right"): return Vector2.RIGHT
+	return Vector2.ZERO
 	
 func play_walk(): #todo: needs to be triggered via events
 	if sprite.animation != "walk_up":
@@ -52,8 +78,7 @@ func play_idle(): #todo: needs to be triggered via events
 
 func play_dead(): #todo: needs to be triggered via events
 	sprite.play("dead")
-	
-	
+		
 func move(dir: Vector2):
 	var target = position + dir * TILE_SIZE
 	
@@ -85,9 +110,6 @@ func respawn():
 		height - sprite_size.y / 2
 	)
 
-func get_input_vector() -> Vector2:
-	if Input.is_action_pressed("ui_up"):    return Vector2.UP
-	if Input.is_action_pressed("ui_down"):  return Vector2.DOWN
-	if Input.is_action_pressed("ui_left"):  return Vector2.LEFT
-	if Input.is_action_pressed("ui_right"): return Vector2.RIGHT
-	return Vector2.ZERO
+func _on_area_entered(area: Area2D):
+	if area.is_in_group("cat"):
+		GameManager.player_died()
