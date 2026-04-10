@@ -19,6 +19,8 @@ func _ready():
 	sprite.play("walk_up")
 	add_to_group("mouse")
 	
+	area_entered.connect(_on_area_entered)
+	
 	width = get_viewport_rect().size.x
 	height = get_viewport_rect().size.y
 	
@@ -76,8 +78,7 @@ func play_idle(): #todo: needs to be triggered via events
 
 func play_dead(): #todo: needs to be triggered via events
 	sprite.play("dead")
-	
-	
+		
 func move(dir: Vector2):
 	var target = position + dir * TILE_SIZE
 	
@@ -108,3 +109,7 @@ func respawn():
 		width / 2,
 		height - sprite_size.y / 2
 	)
+
+func _on_area_entered(area: Area2D):
+	if area.is_in_group("cat"):
+		GameManager.player_died()

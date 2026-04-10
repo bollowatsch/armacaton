@@ -1,37 +1,13 @@
 [gd_scene format=4 uid="uid://ddlbvldl0rj5a"]
 
+[ext_resource type="Script" uid="uid://r7ue8lbsx6aw" path="res://scripts/levels/level1.gd" id="1_0absb"]
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="2_le1x0"]
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="2_rwkk4"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="2_x3ltn"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
 
-[sub_resource type="GDScript" id="GDScript_ie7v7"]
-script/source = "# test_switch.gd  — läuft wenn du F6 drückst
-extends Node
-
-func _ready():
-	# SwitchManager direkt instanzieren ohne Autoload
-	var sm = preload(\"res://scripts/switch_manager.gd\").new()
-	add_child(sm)
-	
-	# Testen:
-	var inp = Vector2.UP
-	
-	print(\"Modus nach Switch: \", sm.current_mode)
-	print(sm.get_mapped_direction(inp))
-	
-	sm.trigger_switch()
-	print(\"Modus nach Switch: \", sm.current_mode)
-	print(sm.get_mapped_direction(inp))
-	
-	sm.trigger_switch()
-	print(\"Modus nach 2. Switch: \", sm.current_mode)
-	print(sm.get_mapped_direction(inp))
-	
-"
-
 [node name="1" type="Node2D" unique_id=1193287785]
-script = SubResource("GDScript_ie7v7")
+script = ExtResource("1_0absb")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=736708555]
 clip_children = 1
@@ -67,7 +43,7 @@ position = Vector2(-1, 190)
 variant = "black"
 
 [node name="Cat4-2" parent="Lanes/Lane4" unique_id=868904292 instance=ExtResource("2_x3ltn")]
-position = Vector2(1136, 0)
+position = Vector2(1024, 0)
 variant = "brown"
 
 [node name="Cat4-3" parent="Lanes/Lane4" unique_id=1714846237 instance=ExtResource("2_x3ltn")]
@@ -77,8 +53,11 @@ position = Vector2(392, 0)
 position = Vector2(-1, -2)
 
 [node name="Cat5-1" parent="Lanes/Lane5" unique_id=622688302 instance=ExtResource("2_x3ltn")]
-position = Vector2(88, 0)
+position = Vector2(368, 0)
 variant = "brown"
+
+[node name="Cat5-2" parent="Lanes/Lane5" unique_id=1933745738 instance=ExtResource("2_x3ltn")]
+position = Vector2(80, 0)
 
 [node name="Lane3" parent="Lanes" unique_id=2138474608 instance=ExtResource("2_le1x0")]
 position = Vector2(-1, 318)
@@ -88,7 +67,7 @@ position = Vector2(72, 0)
 variant = "brown"
 
 [node name="Cat1-2" parent="Lanes/Lane3" unique_id=1855729503 instance=ExtResource("2_x3ltn")]
-position = Vector2(936, 0)
+position = Vector2(856, 0)
 variant = "black"
 
 [node name="Mouse" parent="." unique_id=278071180 instance=ExtResource("4_f00r8")]
