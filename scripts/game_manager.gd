@@ -40,6 +40,7 @@ func player_died():
 		print("state dead")
 
 		# TODO back to start screen
+		emit_signal("game_over")
 	else:
 		# Spieler respawnen — Signal an mouse.gd
 		get_tree().call_group("mouse", "respawn")
@@ -70,4 +71,7 @@ func restart():
 	
 func register_mouse(m : Mouse1):
 	mouse = m
+	
+func _on_game_over():
+	set_state(GameState.GAME_OVER)
 	
