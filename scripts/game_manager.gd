@@ -12,6 +12,7 @@ var lives: int
 var level: int
 
 var mouse: Mouse1
+var label: ConditionalLabel
 
 signal lives_changed(new_lives)
 signal level_changed(new_level)
@@ -37,10 +38,8 @@ func player_died():
 	if lives <= 0:
 		state = State.DEAD
 		mouse.play_dead()
-		print("state dead")
-
-		# TODO back to start screen
-		emit_signal("game_over")
+		go_to_menu_dead()
+		
 	else:
 		# Spieler respawnen — Signal an mouse.gd
 		get_tree().call_group("mouse", "respawn")
@@ -63,7 +62,11 @@ func player_reached_goal():
 
 func go_to_menu():
 	state = State.MENU
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
+
+func go_to_menu_dead():
+	state = State.DEAD
+	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
 
 func restart():
 	start_game()
@@ -72,6 +75,5 @@ func restart():
 func register_mouse(m : Mouse1):
 	mouse = m
 	
-func _on_game_over():
-	set_state(GameState.GAME_OVER)
-	
+func register_label(l: ConditionalLabel):
+	label = l
