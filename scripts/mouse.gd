@@ -5,18 +5,18 @@ extends Area2D
 
 # Rastergröße: Spieler springt immer um genau 1 Tile
 const TILE_SIZE = 8
-const X_AXIS = 1280
-const Y_AXIS = 920
-
-const X_START = X_AXIS / 2
-const Y_START = Y_AXIS
-
+var width: float 
+var height: float 
 var sprite_size: Vector2
+
 var can_move = true
 
 func _ready():
 	sprite.play("walk")
 	add_to_group("mouse")
+	
+	width = get_viewport_rect().size.x
+	height = get_viewport_rect().size.y
 	
 	var frames = $AnimatedSprite2D.sprite_frames
 	sprite_size = frames.get_frame_texture("idle", 0).get_size()
@@ -50,9 +50,11 @@ func move(dir: Vector2):
 	var target = position + dir * TILE_SIZE
 	
 	# Check borders
-	if target.x < 0 + sprite_size.x / 2 or target.x + sprite_size.x / 2 > X_AXIS:
+	if target.x < 0 + sprite_size.x / 2 or target.x + sprite_size.x / 2 > width:
+		print('position %s out of bounds' % [str(position)])
 		return
-	if target.y > Y_AXIS - sprite_size.y / 2:
+	if target.y > height - sprite_size.y / 2:
+		print('position %s out of bounds' % [str(position)])
 		return
 	
 	can_move = false
@@ -66,10 +68,8 @@ func move(dir: Vector2):
 	if position.y == 0:
 		GameManager.player_reached_goal()
 
-func respawn():
-	var screen = get_viewport_rect().size
-	
+func respawn():	
 	position = Vector2(
-		screen.x / 2 - sprite_size.x / 2,
-		screen.y - sprite_size.y / 2
+		width / 2,
+		height - sprite_size.y / 2
 	)
