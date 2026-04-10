@@ -42,7 +42,8 @@ func player_died():
 		
 	else:
 		# Spieler respawnen — Signal an mouse.gd
-		get_tree().call_group("mouse", "respawn")
+		mouse.respawn()
+		#get_tree().call_group("mouse", "respawn")
 
 func player_reached_goal():
 	if state != State.PLAYING:
@@ -57,7 +58,7 @@ func player_reached_goal():
 		# TODO back to start screen
 	else:
 		get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % level)
-		get_tree().call_group("mouse", "respawn")
+		mouse.respawn()
 		
 
 func go_to_menu():
