@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="2_le1x0"]
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="2_rwkk4"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="2_x3ltn"]
+[ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="3_4o7q8"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
 
 [node name="1" type="Node2D" unique_id=1193287785]
@@ -20,6 +21,8 @@ tile_set = ExtResource("2_rwkk4")
 
 [node name="Lanes" type="Node2D" parent="." unique_id=2145906342]
 position = Vector2(1, 194)
+
+[node name="HUD" parent="Lanes" unique_id=1366411508 instance=ExtResource("3_4o7q8")]
 
 [node name="Lane" parent="Lanes" unique_id=355228128 instance=ExtResource("2_le1x0")]
 position = Vector2(-1, 638)

@@ -29,6 +29,8 @@ func player_died():
 	
 	lives -= 1
 	emit_signal("lives_changed", lives)
+	print(lives)
+
 	
 	if lives <= 0:
 		state = State.DEAD
