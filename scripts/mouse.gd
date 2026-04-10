@@ -15,7 +15,8 @@ func _unhandled_input(event):
 	
 	# SwitchManager gibt die "echte" Richtung zurück
 	# (nach Input-Remapping!)
-	var direction = SwitchManager.get_mapped_direction(event)
+	var input_vector = SwitchManager.input_event_to_vector2(event)
+	var direction = SwitchManager.get_mapped_direction(input_vector)
 	
 	if direction != Vector2.ZERO:
 		move(direction)
