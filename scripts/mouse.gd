@@ -16,14 +16,14 @@ const TILE_SIZE = 16
 var can_move = true
 
 func _ready():
-	sprite.play("walk")
+	sprite.play("walk_up")
 	add_to_group("mouse")
 	
 	width = get_viewport_rect().size.x
 	height = get_viewport_rect().size.y
 	
 	var frames = $AnimatedSprite2D.sprite_frames
-	sprite_size = frames.get_frame_texture("idle", 0).get_size()
+	sprite_size = frames.get_frame_texture("waits", 0).get_size()
 	respawn()
 	
 func _process(delta: float) -> void:
@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 		first_move = false
 	
 func play_walk(): #todo: needs to be triggered via events
-	if sprite.animation != "walk":
+	if sprite.animation != "walk_up":
 		sprite.play("walk")
 
 func play_idle(): #todo: needs to be triggered via events
@@ -63,6 +63,9 @@ func move(dir: Vector2):
 		return
 	if target.y > height - sprite_size.y / 2:
 		print('position %s out of bounds' % [str(position)])
+		return
+	if target.y <= 0:
+		GameManager.player_reached_goal()
 		return
 	
 	can_move = false
