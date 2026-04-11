@@ -5,12 +5,11 @@ extends Area2D
 
 var speed := 100.0
 var direction := Vector2.RIGHT
-var viewport_size : Vector2
+var viewport_size: Vector2
 var size: Vector2
 
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func setup(spd: float, dir: Vector2, var_name: String):
 	speed = spd
@@ -20,7 +19,6 @@ func setup(spd: float, dir: Vector2, var_name: String):
 
 func _ready():
 	add_to_group("cat")
-	body_entered.connect(_on_body_entered)
 	viewport_size = get_viewport_rect().size
 	var frames = $AnimatedSprite2D.sprite_frames
 	size = frames.get_frame_texture("walk_right_white", 0).get_size()
@@ -29,13 +27,13 @@ func _ready():
 func _process(delta):
 	global_position += direction * speed * delta
 	
-	if global_position.x > viewport_size.x + (size.x*2) && direction == Vector2.RIGHT:
-		global_position.x = -(size.x/2.0)
+	if global_position.x > viewport_size.x + (size.x * 2) && direction == Vector2.RIGHT:
+		global_position.x = - (size.x / 2.0)
 	elif global_position.x < 0 && direction == Vector2.LEFT:
 		global_position.x = viewport_size.x + size.x
 	
 	if global_position.y > viewport_size.y + size.y && direction == Vector2.DOWN:
-		global_position.y = -size.y
+		global_position.y = - size.y
 	elif global_position.y < -size.y && direction == Vector2.UP:
 		global_position.y = viewport_size.y + size.y
 
@@ -58,11 +56,3 @@ func update_animation():
 		sprite.play("walk_down" + suffix)
 	elif direction == Vector2.UP:
 		sprite.play("walk_up" + suffix)
-
-func _on_body_entered(body):
-	if body is Mouse1:  # nur wenn Maus getroffen
-		audio.play()
-		
-#cat in	main dann erzeugen 
-#var cat1 = cat_scene.instantiate()
-#cat1.setup(100.0, Vector2.RIGHT, "brown")
