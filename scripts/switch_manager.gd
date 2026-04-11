@@ -1,7 +1,7 @@
 extends Node
 
 # Mögliche Modi
-enum Mode { NORMAL, SWAP_LR, ROTATE_CW, INVERT_ALL, RANDOM }
+enum Mode { NORMAL, SWAP_LR, ROTATE_CW, INVERT_ALL, RANDOM, SWAP_LANE_DIR}
 
 var current_mode: Mode = Mode.NORMAL
 var last_time_until_switch: float = 8.0
@@ -37,6 +37,11 @@ func trigger_switch():
 		Vector2.LEFT: temp.pop_front(),
 		}
 	
+	LaneManager.restore_all_directions()
+	
+	if current_mode == Mode.SWAP_LANE_DIR:
+		LaneManager.swap_directions()
+	
 	# UI benachrichtigen
 	emit_signal("switch_triggered", current_mode)
 
@@ -67,6 +72,8 @@ func get_mapped_direction(raw: Vector2) -> Vector2:
 			return raw * -1
 		Mode.RANDOM:
 			return random_vector[raw]
+		Mode.SWAP_LANE_DIR:
+			return raw
 		
 	push_error('No vector could be determined for move')
 	return Vector2.ZERO
