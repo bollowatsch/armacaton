@@ -38,8 +38,7 @@ func swap_directions():
 				child.direction *= -1
 				child.update_animation()	
 
-func restore_all_directions():
-	for lane in lanes_node.get_children():
+func restore_all_directions():	for lane in lanes_node.get_children():
 		for child in lane.get_children():
 			if child is Cat:
 				child.direction = default_direction
