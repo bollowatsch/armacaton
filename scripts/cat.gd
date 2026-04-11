@@ -56,10 +56,10 @@ func update_animation():
 		sprite.play("walk_left" + suffix)
 	elif direction == Vector2.DOWN:
 		sprite.play("walk_down" + suffix)
-	else:
-		sprite.play("walk_down" + suffix)
-		sprite.flip_h = false
-		sprite.flip_v = direction.y < 0
+	elif direction == Vector2.UP:
+		sprite.play("walk_up" + suffix)
+		#sprite.flip_h = false
+		#sprite.flip_v = direction.y < 0
 
 func _on_body_entered(body):
 	if body is Mouse1:  # nur wenn Maus getroffen

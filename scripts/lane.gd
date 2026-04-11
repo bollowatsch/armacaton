@@ -6,6 +6,7 @@ var default_direction: Vector2
 func register_lanes(node: Node, dir: Vector2):
 	lanes_node = node
 	default_direction = dir
+	set_direction_for_all_lanes(dir)
 	
 func set_speed_for_lane(lane: Node, new_speed: float):
 	for child in lane.get_children():
@@ -19,8 +20,12 @@ func set_direction_for_lane(lane: Node, new_dir: Vector2):
 			child.update_animation()
 
 func set_speed_all_lanes(new_speed: float):
-	for lane in $Lanes.get_children():
+	for lane in lanes_node.get_children():
 		set_speed_for_lane(lane, new_speed)
+
+func set_direction_for_all_lanes(new_dir: Vector2):
+	for lane in lanes_node.get_children():
+		set_direction_for_lane(lane, new_dir)
 		
 func swap_directions():
 	var lanes = lanes_node.get_children()
