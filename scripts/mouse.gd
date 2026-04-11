@@ -7,7 +7,6 @@ extends Area2D
 @onready var coin_sound: AudioStreamPlayer2D = $Coin
 @onready var milk_sound: AudioStreamPlayer2D = $Milk
 @onready var cheese_sound: AudioStreamPlayer2D = $Cheese
-@onready var level_sound: AudioStreamPlayer2D = $Level
 @onready var game_over_sound: AudioStreamPlayer2D = $GameOver
 
 var width: float
