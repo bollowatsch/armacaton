@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="1_7i6uk"]
 [ext_resource type="Script" uid="uid://b3yroks71bfh3" path="res://scripts/levels/level3.gd" id="1_sc0rx"]
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="2_2n3hm"]
+[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="2_ppyrk"]
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="4_cddsv"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="5_sc0rx"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="6_sc0rx"]
@@ -113,4 +114,5 @@ rotation = 1.5707964
 position = Vector2(56, 520)
 
 [node name="Level" type="AudioStreamPlayer2D" parent="." unique_id=619462222]
+stream = ExtResource("2_ppyrk")
 script = ExtResource("7_2n3hm")
