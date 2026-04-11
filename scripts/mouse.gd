@@ -6,12 +6,9 @@ extends Area2D
 @onready var hit_sound: AudioStreamPlayer2D = $Explosion
 @onready var coin_sound: AudioStreamPlayer2D = $Coin
 @onready var milk_sound: AudioStreamPlayer2D = $Milk
-<<<<<<< HEAD
 @onready var trap_sound: AudioStreamPlayer2D = $Trap
-=======
 @onready var cheese_sound: AudioStreamPlayer2D = $Cheese
 @onready var game_over_sound: AudioStreamPlayer2D = $GameOver
->>>>>>> 109c3b7061cf3a839120f8a7deb604e4bae4771c
 
 var width: float
 var height: float
@@ -43,7 +40,7 @@ func _ready():
 
 	move_speed = 300.0
 	
-	GameManager.register_mouse(self )
+	GameManager.register_mouse(self)
 	
 	var frames = $AnimatedSprite2D.sprite_frames
 	sprite_size = frames.get_frame_texture("waits", 0).get_size()
