@@ -2,7 +2,7 @@ extends Node
 
 # Item Spawn Configuration
 const SPAWN_CONFIG = {
-	"cheese": 2, # Extra Leben
+	"heart": 2, # Extra Leben
 	"milk": 3, # Münzen
 	"tnt": 5, # Minus Leben
 	"coin": 4, # Bonus Punkte

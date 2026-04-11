@@ -7,6 +7,7 @@ const MILK_SCENE = preload("res://scenes/figures/milk_bottle.tscn")
 const TNT_SCENE = preload("res://scenes/figures/tnt.tscn")
 const COIN_SCENE = preload("res://scenes/figures/coin.tscn")
 const TRAP_SCENE = preload("res://scenes/figures/trap.tscn")
+const HEART_SCENE = preload("res://scenes/figures/heart.tscn")
 
 # Spawn configuration
 var spawn_config: Dictionary = {
@@ -64,6 +65,10 @@ func spawn_all_items():
 	# trap spawnen
 	for i in range(spawn_config.get("trap", 0)):
 		_spawn_item(TRAP_SCENE, "trap")
+	
+	#heart spwanen
+	for i in range(spawn_config.get("heart", 0)):
+		_spawn_item(HEART_SCENE, "heart")
 		
 	
 

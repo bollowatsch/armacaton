@@ -2,17 +2,19 @@ extends Node
 
 # Item Spawn Configuration
 const SPAWN_CONFIG = {
-	"cheese": 2, # Extra Leben
+	"heart": 2, # Extra Leben
 	"milk": 3, # Münzen
 	"tnt": 5, # Minus Leben
 	"coin": 4, # Bonus Punkte
-	"trap": 1 # direkter Tod
+	"trap": 2, # direkter Tod
+	"cheese": 1 # Gewonnen
 }
 
 func _ready():
 	LaneManager.register_lanes($Lanes, Vector2.RIGHT)
-	LaneManager.set_speed_for_lane($Lanes/Lane2, 200.0)
-	LaneManager.set_speed_for_lane($Lanes/Lane4, 60.0)
+	LaneManager.set_speed_for_lane($Lanes/Lane, 450.0)
+	LaneManager.set_speed_for_lane($Lanes/Lane2, 120.0)
+	LaneManager.set_speed_for_lane($Lanes/Lane5, 80.0)
 	var offset: Vector2 = GameManager.OFFSET_PER_LEVEL[2]
 	GameManager.mouse.respawn(offset)
 

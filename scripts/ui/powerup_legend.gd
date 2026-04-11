@@ -11,7 +11,7 @@ const POWERUPS = [
 	{
 		"name": "Milk",
 		"texture": "res://assets/Extras/milk_1.png",
-		"atlas_region": null,
+		"atlas_region": Rect2(200, 200, 600, 600),
 		"description": "Speed Boost"
 	},
 	{
@@ -21,9 +21,15 @@ const POWERUPS = [
 		"description": "Bonus Points"
 	},
 	{
+		"name": "Heart",
+		"texture": "res://assets/Extras/hearts.png",
+		"atlas_region": Rect2(0, 0, 30, 30),
+		"description": "+1 Life"
+	},
+	{
 		"name": "TNT",
 		"texture": "res://assets/Extras/pixel_art.png",
-		"atlas_region": null,
+		"atlas_region": Rect2(20, 0, 30, 30),
 		"description": "-2 Lives"
 	},
 	{
