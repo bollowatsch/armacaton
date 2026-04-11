@@ -3,7 +3,7 @@ extends Node
 # CONSTANTS
 const LIVES_START: int = 5
 const LEVEL_START: int = 1
-const LEVELS_AVAILABLE: int = 2
+const LEVELS_AVAILABLE: int = 3
 
 const SAVE_PATH = "user://highscores.json"
 
@@ -119,7 +119,7 @@ func add_life():
 	emit_signal("lives_changed", lives)
 
 func reduce_life():
-	if(lives <= 2):
+	if (lives <= 2):
 		state = State.DEAD
 		mouse.sprite.play("explodes")
 		mouse.hit_sound.play()
@@ -134,7 +134,6 @@ func reduce_life():
 		mouse.respawn(OFFSET_PER_LEVEL[level])
 		
 	
-
 func collect_coin():
 	coins += 1
 	emit_signal("coins_changed", coins)
