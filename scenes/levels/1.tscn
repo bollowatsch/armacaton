@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="2_x3ltn"]
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="3_4o7q8"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
-[ext_resource type="PackedScene" uid="uid://olgww0nxut5y" path="res://scenes/figures/cheese.tscn" id="6_kpjit"]
-[ext_resource type="PackedScene" uid="uid://cek4n37q7b4a6" path="res://scenes/figures/milk_bottle.tscn" id="7_ijh0y"]
-[ext_resource type="PackedScene" uid="uid://cxk7fvl2v3le3" path="res://scenes/figures/tnt.tscn" id="7_ql3nd"]
 [ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/music/level.wav" id="10_djhl7"]
-[ext_resource type="Script" uid="uid://53qbve6qhw7i" path="res://scenes/levels/audio_stream_player_2d.gd" id="11_kekgo"]
+[ext_resource type="Script" path="res://scenes/levels/audio_stream_player_2d.gd" id="11_kekgo"]
 
 [node name="1" type="Node2D" unique_id=1193287785]
 script = ExtResource("1_0absb")
