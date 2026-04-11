@@ -9,7 +9,8 @@ font_size = 30
 script = ExtResource("1_0mwgc")
 
 [node name="LevelLabel" type="Label" parent="." unique_id=1459695053]
-offset_right = 60.0
+offset_left = 20.0
+offset_right = 128.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 50
 text = "Level: 1"
@@ -19,8 +20,9 @@ label_settings = SubResource("LabelSettings_wh2we")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -60.0
-offset_bottom = 40.0
+offset_left = -80.0
+offset_right = -20.0
+offset_bottom = 42.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 30
 text = "3"

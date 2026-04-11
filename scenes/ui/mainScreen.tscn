@@ -6,29 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="2_g7eud"]
 [ext_resource type="Script" uid="uid://bn4fi7w516rx8" path="res://scenes/ui/button.gd" id="3_7k8q6"]
 
-[sub_resource type="GDScript" id="GDScript_63g2s"]
-script/source = "class_name ConditionalLabel
-
-extends Label
-
-enum GameState { NEW_GAME, GAME_OVER }
-
-func set_state(state: GameState):
-	match state:
-		GameState.NEW_GAME:
-			text = \"New Game\"
-		GameState.GAME_OVER:
-			text = \"Game Over\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	set_state(GameState.NEW_GAME)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="MainScreen" type="Node2D" unique_id=2050095863]
 script = ExtResource("1_15og1")
 
@@ -112,13 +89,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="conditionalLabel" type="Label" parent="Screen" unique_id=461544527]
-offset_left = 416.0
-offset_top = 448.0
-offset_right = 864.0
-offset_bottom = 576.0
+offset_left = 415.0
+offset_top = 331.0
+offset_right = 863.0
+offset_bottom = 459.0
 theme_override_colors/font_shadow_color = Color(0.23588577, 0.23588577, 0.23588577, 0)
 theme_override_font_sizes/font_size = 48
 text = "New Game"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = SubResource("GDScript_63g2s")
+
+[node name="statisticsLabel" type="Label" parent="Screen" unique_id=1437127367]
+offset_left = 415.0
+offset_top = 445.0
+offset_right = 863.0
+offset_bottom = 573.0
+theme_override_colors/font_shadow_color = Color(0.23588577, 0.23588577, 0.23588577, 0)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1

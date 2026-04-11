@@ -34,7 +34,6 @@ func _ready():
 	
 	var frames = $AnimatedSprite2D.sprite_frames
 	sprite_size = frames.get_frame_texture("waits", 0).get_size()
-	respawn()
 
 func _process(delta: float) -> void:
 	# Smooth movement — zuerst zum Ziel gleiten
@@ -86,8 +85,8 @@ func move(dir: Vector2):
 	# Mit jeder Bewegung schneller werden
 	move_delay = max(MOVE_DELAY_MIN, move_delay - SPEED_INCREASE)
 
-func respawn():
-	position = Vector2(width / 2, height - sprite_size.y / 2)
+func respawn(offset: Vector2 = Vector2.ZERO):
+	position = Vector2(width / 2, height - sprite_size.y / 2) + offset
 	target_position = position
 	is_moving = false
 	first_move = true
