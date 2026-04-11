@@ -10,8 +10,8 @@ var sprite_size: Vector2
 
 const TILE_SIZE = 16
 const MOVE_DELAY_START = 0.15
-const MOVE_DELAY_MIN = 0.05      # maximale Geschwindigkeit
-const SPEED_INCREASE = 0.005     # pro Bewegung schneller
+const MOVE_DELAY_MIN = 0.05 # maximale Geschwindigkeit
+const SPEED_INCREASE = 0.005 # pro Bewegung schneller
 
 var move_delay: float = MOVE_DELAY_START
 var move_timer: float = 0.0
@@ -20,7 +20,9 @@ var first_move: bool = true
 # Smooth movement
 var target_position: Vector2
 var is_moving: bool = false
-const MOVE_SPEED: float = 300.0  # Pixel pro Sekunde
+var move_speed: float
+const MAX_MOVE_SPEED: float = 500.0
+const MIN_MOVE_SPEED: float = 100.0
 
 func _ready():
 	add_to_group("mouse")
@@ -30,8 +32,10 @@ func _ready():
 	
 	width = get_viewport_rect().size.x
 	height = get_viewport_rect().size.y
+
+	move_speed = 300.0
 	
-	GameManager.register_mouse(self)
+	GameManager.register_mouse(self )
 	
 	var frames = $AnimatedSprite2D.sprite_frames
 	sprite_size = frames.get_frame_texture("waits", 0).get_size()
@@ -39,10 +43,10 @@ func _ready():
 func _process(delta: float) -> void:
 	# Smooth movement — zuerst zum Ziel gleiten
 	if is_moving:
-		position = position.move_toward(target_position, MOVE_SPEED * delta)
+		position = position.move_toward(target_position, move_speed * delta)
 		if position == target_position:
 			is_moving = false
-		return  # kein neuer Input während Bewegung
+		return # kein neuer Input während Bewegung
 	
 	# Frisch gedrückte Taste hat Priorität
 	var just_pressed = get_just_pressed_vector()
@@ -92,20 +96,21 @@ func respawn(offset: Vector2 = Vector2.ZERO):
 	is_moving = false
 	first_move = true
 	move_timer = 0.0
-	move_delay = MOVE_DELAY_START  # Geschwindigkeit zurücksetzen
+	move_delay = MOVE_DELAY_START # Geschwindigkeit zurücksetzen
+	move_speed = 300.0
 	play_walk()
 
 func get_just_pressed_vector() -> Vector2:
-	if Input.is_action_just_pressed("ui_up"):    return Vector2.UP
-	if Input.is_action_just_pressed("ui_down"):  return Vector2.DOWN
-	if Input.is_action_just_pressed("ui_left"):  return Vector2.LEFT
+	if Input.is_action_just_pressed("ui_up"): return Vector2.UP
+	if Input.is_action_just_pressed("ui_down"): return Vector2.DOWN
+	if Input.is_action_just_pressed("ui_left"): return Vector2.LEFT
 	if Input.is_action_just_pressed("ui_right"): return Vector2.RIGHT
 	return Vector2.ZERO
 
 func get_held_vector() -> Vector2:
-	if Input.is_action_pressed("ui_up"):    return Vector2.UP
-	if Input.is_action_pressed("ui_down"):  return Vector2.DOWN
-	if Input.is_action_pressed("ui_left"):  return Vector2.LEFT
+	if Input.is_action_pressed("ui_up"): return Vector2.UP
+	if Input.is_action_pressed("ui_down"): return Vector2.DOWN
+	if Input.is_action_pressed("ui_left"): return Vector2.LEFT
 	if Input.is_action_pressed("ui_right"): return Vector2.RIGHT
 	return Vector2.ZERO
 
@@ -124,3 +129,9 @@ func play_idle():
 
 func play_dead():
 	sprite.play("dies_up")
+
+func increase_movespeed(increment: float = 50):
+	move_speed += min(MAX_MOVE_SPEED, move_speed + increment)
+
+func decrease_movespeed(decrement: float = 50):
+	move_speed = max(MIN_MOVE_SPEED, move_speed - decrement)
