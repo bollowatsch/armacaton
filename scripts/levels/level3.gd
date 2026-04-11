@@ -6,5 +6,5 @@ func _ready():
 	LaneManager.set_speed_for_lane($Lanes/Lane2, 130.0)
 	LaneManager.set_speed_for_lane($Lanes/Lane4, 60.0)
 	LaneManager.set_speed_for_lane($Lanes/Lane4, 150.0)
-	var offset: Vector2 = GameManager.OFFSET_PER_LEVEL[2]
+	var offset: Vector2 = GameManager.OFFSET_PER_LEVEL[3]
 	GameManager.mouse.respawn(offset)

@@ -104,7 +104,11 @@ func respawn(offset: Vector2 = Vector2.ZERO):
 	move_timer = 0.0
 	move_delay = MOVE_DELAY_START # Geschwindigkeit zurücksetzen
 	move_speed = 300.0
-	play_walk()
+	print("Level: %d" % GameManager.level)
+	if GameManager.level != 3:
+		play_walk()
+	else:
+		play_walk_right()
 
 func get_just_pressed_vector() -> Vector2:
 	if Input.is_action_just_pressed("ui_up"): return Vector2.UP
@@ -128,6 +132,10 @@ func _on_area_entered(area: Area2D):
 func play_walk():
 	if sprite.animation != "walk_up":
 		sprite.play("walk_up")
+
+func play_walk_right():
+	if sprite.animation != "walk_right":
+		sprite.play("walk_right")
 
 func play_idle():
 	if sprite.animation != "idle":
