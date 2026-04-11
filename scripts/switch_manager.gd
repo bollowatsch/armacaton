@@ -30,7 +30,6 @@ func trigger_switch():
 	# Timer wird mit der Zeit kürzer (Schwierigkeit!)
 	last_time_until_switch = randf_range(MIN_TIME_UNTIL_SWITCH, MAX_TIME_UNTIL_SWITCH)
 	time_until_switch = last_time_until_switch
-	print("Switching to mode: %s, next switch in %.2f seconds" % [current_mode, time_until_switch])
 	var temp = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
 	temp.shuffle()
 	random_vector = {

@@ -2,6 +2,7 @@ class_name Mouse1
 extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var width: float
 var height: float
@@ -110,6 +111,7 @@ func get_held_vector() -> Vector2:
 
 func _on_area_entered(area: Area2D):
 	if area.is_in_group("cat"):
+		audio.play()
 		GameManager.player_died()
 
 func play_walk():
