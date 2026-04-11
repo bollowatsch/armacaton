@@ -12,6 +12,8 @@ var time_until_switch: float = last_time_until_switch
 var random_vector: Dictionary
 
 func _process(delta):
+	if GameManager.state != GameManager.State.PLAYING:
+		return
 	time_until_switch -= delta
 	
 	get_tree().call_group("hud", "update_timer", time_until_switch)
