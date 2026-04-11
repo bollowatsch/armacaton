@@ -6,9 +6,10 @@ func set_speed_for_lane(lane: Node, new_speed: float):
 			child.speed = new_speed
 
 func set_direction_for_lane(lane: Node, new_dir: Vector2):
-	for cat in lane.get_children():
-		cat.direction = new_dir
-		cat.update_animation()
+	for child in lane.get_children():
+		if child is Cat:
+			child.direction = new_dir
+			child.update_animation()
 
 func set_speed_all_lanes(new_speed: float):
 	for lane in $Lanes.get_children():
