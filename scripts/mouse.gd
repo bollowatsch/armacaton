@@ -9,6 +9,7 @@ extends Area2D
 @onready var trap_sound: AudioStreamPlayer2D = $Trap
 @onready var cheese_sound: AudioStreamPlayer2D = $Cheese
 @onready var game_over_sound: AudioStreamPlayer2D = $GameOver
+@onready var heart_sound: AudioStreamPlayer2D = $Heart
 
 var width: float
 var height: float

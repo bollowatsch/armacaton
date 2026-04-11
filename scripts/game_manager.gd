@@ -118,6 +118,8 @@ func register_mouse(m: Mouse1):
 	
 func add_life():
 	lives += 1
+	mouse.heart_sound.play()
+	await mouse.heart_sound.finished
 	emit_signal("lives_changed", lives)
 
 func reduce_life():

@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bnrxr3570ddav" path="res://assets/audio/trap_sound.mp3" id="16_grnv2"]
 [ext_resource type="AudioStream" uid="uid://dikpp5jfv7it1" path="res://assets/audio/milk_sound.mp3" id="16_pm8c8"]
 [ext_resource type="AudioStream" uid="uid://djguffjtgv4eg" path="res://assets/audio/siuu.mp3" id="17_grnv2"]
+[ext_resource type="AudioStream" uid="uid://c1qn60ja6wfjb" path="res://assets/audio/cheese.mp3" id="17_pt5li"]
 [ext_resource type="AudioStream" uid="uid://cpg8pfetkdeya" path="res://assets/audio/gameOver.mp3" id="18_grnv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a56sk"]
@@ -235,3 +236,6 @@ stream = ExtResource("17_grnv2")
 [node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=881923029]
 stream = ExtResource("18_grnv2")
 volume_db = 12.0
+
+[node name="Heart" type="AudioStreamPlayer2D" parent="." unique_id=1603468486]
+stream = ExtResource("17_pt5li")

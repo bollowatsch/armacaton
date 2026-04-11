@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="3_4o7q8"]
 [ext_resource type="PackedScene" uid="uid://8lwt1wncjwwc" path="res://scenes/figures/trap.tscn" id="3_ql3nd"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
+[ext_resource type="PackedScene" uid="uid://de0ibcyqgveak" path="res://scenes/figures/heart.tscn" id="6_x6e36"]
 [ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="7_kpjit"]
-[ext_resource type="Script" uid="uid://bh2gtg2q358as" path="res://scripts/audio/level.gd" id="8_ijh0y"]
+[ext_resource type="Script" path="res://scripts/audio/level.gd" id="8_ijh0y"]
 
 [node name="1" type="Node2D" unique_id=1193287785]
 script = ExtResource("1_0absb")
@@ -55,6 +56,9 @@ position = Vector2(176, 0)
 
 [node name="Lane5" parent="Lanes" unique_id=1835171055 instance=ExtResource("2_le1x0")]
 position = Vector2(-1, -2)
+
+[node name="Heart" parent="Lanes/Lane5" unique_id=517061630 instance=ExtResource("6_x6e36")]
+position = Vector2(728, 643)
 
 [node name="Cat5-1" parent="Lanes/Lane5" unique_id=622688302 instance=ExtResource("2_x3ltn")]
 position = Vector2(416, 0)
