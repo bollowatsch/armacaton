@@ -27,17 +27,17 @@ func _ready():
 	update_animation()
 
 func _process(delta):
-	position += direction * speed * delta
+	global_position += direction * speed * delta
 	
-	if position.x > viewport_size.x + (size.x*2) && direction == Vector2.RIGHT:
-		position.x = -(size.x/2.0)
-	elif position.x < 0 && direction == Vector2.LEFT:
-		position.x = viewport_size.x + size.x
+	if global_position.x > viewport_size.x + (size.x*2) && direction == Vector2.RIGHT:
+		global_position.x = -(size.x/2.0)
+	elif global_position.x < 0 && direction == Vector2.LEFT:
+		global_position.x = viewport_size.x + size.x
 	
-	if position.y > viewport_size.y + size.y && direction == Vector2.DOWN:
-		position.y = -size.y
-	elif position.y < -size.y && direction == Vector2.UP:
-		position.y = viewport_size.y + size.y
+	if global_position.y > viewport_size.y + size.y && direction == Vector2.DOWN:
+		global_position.y = -size.y
+	elif global_position.y < -size.y && direction == Vector2.UP:
+		global_position.y = viewport_size.y + size.y
 
 func update_animation():
 	var suffix = ""
@@ -58,8 +58,6 @@ func update_animation():
 		sprite.play("walk_down" + suffix)
 	elif direction == Vector2.UP:
 		sprite.play("walk_up" + suffix)
-		#sprite.flip_h = false
-		#sprite.flip_v = direction.y < 0
 
 func _on_body_entered(body):
 	if body is Mouse1:  # nur wenn Maus getroffen
