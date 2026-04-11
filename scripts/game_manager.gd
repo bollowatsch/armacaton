@@ -107,6 +107,8 @@ func player_reached_goal():
 
 func go_to_menu():
 	if state == State.WIN or state == State.DEAD:
+		mouse.game_over_sound.play()
+		await mouse.game_over_sound.finished
 		get_tree().change_scene_to_file("res://scenes/ui/highscores.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
