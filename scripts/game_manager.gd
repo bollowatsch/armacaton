@@ -3,14 +3,14 @@ extends Node
 # CONSTANTS
 const LIVES_START: int = 5
 const LEVEL_START: int = 1
-const LEVELS_AVAILABLE: int = 3
+const LEVELS_AVAILABLE: int = 4
 
 const SAVE_PATH = "user://highscores.json"
 
 const OFFSET_PER_LEVEL: Dictionary = {
 	1: Vector2.ZERO,
 	2: Vector2.ZERO,
-	3: Vector2(110, 0),
+	3: Vector2(-600, -500),
 	4: Vector2.ZERO
 }
 
