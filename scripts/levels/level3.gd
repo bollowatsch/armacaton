@@ -15,6 +15,9 @@ func _ready():
 	LaneManager.set_speed_for_lane($Lanes/Lane4, 150.0)
 	var offset: Vector2 = GameManager.OFFSET_PER_LEVEL[3]
 	GameManager.mouse.respawn(offset)
+	
+	# Spawn Items
+	_spawn_items()
 
 func _spawn_items():
 	# Erstelle Container für Items falls nicht vorhanden
@@ -23,3 +26,11 @@ func _spawn_items():
 		items_container = Node2D.new()
 		items_container.name = "Items"
 		add_child(items_container)
+
+	# Erstelle und konfiguriere Spawner
+	var spawner = ItemSpawner.new()
+	spawner.setup(SPAWN_CONFIG, items_container)
+	spawner.spawn_all_items()
+
+	# Spawner wird nicht mehr gebraucht
+	spawner.queue_free()
