@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="4_cddsv"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="5_sc0rx"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="6_sc0rx"]
+[ext_resource type="Script" uid="uid://bh2gtg2q358as" path="res://scripts/audio/level.gd" id="7_2n3hm"]
 
 [node name="3" type="Node2D" unique_id=1551457001]
 script = ExtResource("1_sc0rx")
@@ -110,3 +111,6 @@ rotation = 1.5707964
 
 [node name="Mouse" parent="." unique_id=278071180 instance=ExtResource("6_sc0rx")]
 position = Vector2(56, 520)
+
+[node name="Level" type="AudioStreamPlayer2D" parent="." unique_id=619462222]
+script = ExtResource("7_2n3hm")
