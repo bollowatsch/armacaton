@@ -573,7 +573,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl8ci"]
-size = Vector2(101.375, 64.5)
+size = Vector2(78, 64.5)
 
 [node name="Cat" type="Area2D" unique_id=126695096]
 script = ExtResource("1_che4s")
@@ -581,9 +581,8 @@ script = ExtResource("1_che4s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1399200998]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_mul66")
-animation = &"walk_up_white"
-frame_progress = 0.51032805
+animation = &"walk_up_black"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677848560]
-position = Vector2(-1.6875, -3.75)
+position = Vector2(-2, -3.75)
 shape = SubResource("RectangleShape2D_bl8ci")
