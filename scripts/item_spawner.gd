@@ -5,6 +5,7 @@ extends Node
 const CHEESE_SCENE = preload("res://scenes/figures/cheese.tscn")
 const MILK_SCENE = preload("res://scenes/figures/milk_bottle.tscn")
 const TNT_SCENE = preload("res://scenes/figures/tnt.tscn")
+const COIN_SCENE = preload("res://scenes/figures/coin.tscn")
 
 # Spawn configuration
 var spawn_config: Dictionary = {
@@ -54,6 +55,9 @@ func spawn_all_items():
 	# TNT spawnen
 	for i in range(spawn_config.get("tnt", 0)):
 		_spawn_item(TNT_SCENE, "tnt")
+
+	for i in range(spawn_config.get("coin", 0)):
+		_spawn_item(COIN_SCENE, "coin")
 
 func _spawn_item(scene: PackedScene, type: String):
 	var item = scene.instantiate()
