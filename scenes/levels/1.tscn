@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="3_4o7q8"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
 [ext_resource type="PackedScene" uid="uid://olgww0nxut5y" path="res://scenes/figures/extra_1.tscn" id="6_kpjit"]
+[ext_resource type="PackedScene" uid="uid://cek4n37q7b4a6" path="res://scenes/figures/milk_bottle.tscn" id="7_ijh0y"]
 
 [node name="1" type="Node2D" unique_id=1193287785]
 script = ExtResource("1_0absb")
@@ -46,7 +47,11 @@ position = Vector2(-1, 190)
 [node name="Extra_1" parent="Lanes/Lane4" unique_id=1849172598 instance=ExtResource("6_kpjit")]
 position = Vector2(678, 5)
 
+[node name="MilkBottle" parent="Lanes/Lane4" unique_id=474873747 instance=ExtResource("7_ijh0y")]
+position = Vector2(838, -207)
+
 [node name="Cat4-1" parent="Lanes/Lane4" unique_id=430104074 instance=ExtResource("2_x3ltn")]
+position = Vector2(0, 4)
 variant = "black"
 
 [node name="Cat4-2" parent="Lanes/Lane4" unique_id=868904292 instance=ExtResource("2_x3ltn")]

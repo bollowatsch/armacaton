@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cek4n37q7b4a6"]
+
+[ext_resource type="Texture2D" uid="uid://ytawftu6kbq0" path="res://assets/Extras/ChatGPT Image 11. Apr. 2026, 10_36_51.png" id="1_5o1cb"]
+[ext_resource type="Script" uid="uid://xple8nh40cjc" path="res://scripts/milk_bottle.gd" id="1_qyhcr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyhcr"]
+atlas = ExtResource("1_5o1cb")
+region = Rect2(0, 363, 384, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2d05"]
+atlas = ExtResource("1_5o1cb")
+region = Rect2(384, 363, 384, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw08g"]
+atlas = ExtResource("1_5o1cb")
+region = Rect2(768, 363, 384, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckxli"]
+atlas = ExtResource("1_5o1cb")
+region = Rect2(1152, 363, 384, 330)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkikc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyhcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2d05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw08g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckxli")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5o1cb"]
+radius = 19.0
+height = 68.0
+
+[sub_resource type="GDScript" id="GDScript_h2d05"]
+
+[node name="MilkBottle" type="Area2D" unique_id=474873747]
+script = ExtResource("1_qyhcr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1970777317]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_kkikc")
+frame_progress = 0.20761165
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=451168497]
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_5o1cb")
+script = SubResource("GDScript_h2d05")
