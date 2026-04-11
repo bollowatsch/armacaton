@@ -1,9 +1,8 @@
-[gd_scene format=4 uid="uid://bfybglr3x08xw"]
+[gd_scene format=4 uid="uid://b3hgimeb4av2f"]
 
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="1_7i6uk"]
-[ext_resource type="Script" uid="uid://b3yroks71bfh3" path="res://scripts/levels/level3.gd" id="1_sc0rx"]
-[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/music/level.wav" id="2_ppyrk"]
-[ext_resource type="Script" uid="uid://53qbve6qhw7i" path="res://scenes/levels/audio_stream_player_2d.gd" id="3_uiw71"]
+[ext_resource type="Script" path="res://scripts/levels/level3.gd" id="1_sc0rx"]
+[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="2_ppyrk"]
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="4_cddsv"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="5_sc0rx"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="6_sc0rx"]
@@ -26,7 +25,6 @@ tile_set = ExtResource("1_7i6uk")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=733287736]
 stream = ExtResource("2_ppyrk")
-script = ExtResource("3_uiw71")
 
 [node name="Lanes" type="Node2D" parent="." unique_id=409777056]
 position = Vector2(1, 194)
