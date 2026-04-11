@@ -39,3 +39,15 @@ offset_right = 100.0
 offset_bottom = 35.0
 grow_horizontal = 2
 value = 100.0
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=798345079]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1009.0
+offset_right = -913.0
+offset_bottom = 42.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Score: "
+label_settings = SubResource("LabelSettings_wh2we")
