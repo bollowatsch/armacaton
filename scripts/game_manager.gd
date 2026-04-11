@@ -4,8 +4,13 @@ extends Node
 var LIVES_START: int = 5
 var LEVEL_START: int = 1
 var LEVELS_AVAILABLE: int = 2
+const OFFSET_PER_LEVEL: Dictionary = {
+	1: Vector2.ZERO,
+	2: Vector2.ZERO,
+	3: Vector2(110, 0)
+}
 
-enum State { MENU, PLAYING, DEAD, WIN }
+enum State {MENU, PLAYING, DEAD, WIN}
 var state: State
 
 var lives: int
@@ -25,7 +30,7 @@ func start_game():
 	state = State.PLAYING
 	emit_signal("lives_changed", lives)
 	emit_signal("level_changed", level)
-
+	
 func player_died():
 	if state != State.PLAYING:
 		return
@@ -39,8 +44,7 @@ func player_died():
 		level -= 1
 		go_to_menu()
 	else:
-		# Spieler respawnen — Signal an mouse.gd
-		mouse.respawn()
+		mouse.respawn(OFFSET_PER_LEVEL[level])
 	
 func player_reached_goal():
 	if state != State.PLAYING:
@@ -51,16 +55,16 @@ func player_reached_goal():
 	
 	if level > LEVELS_AVAILABLE:
 		state = State.WIN
-		level -= 1  # set level to last achieved one
+		level -= 1 # set level to last achieved one
 		go_to_menu()
 	else:
 		get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % level)
-		mouse.respawn()
+		mouse.respawn(OFFSET_PER_LEVEL[level])
 
 func go_to_menu():
 	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
 
-func register_mouse(m : Mouse1):
+func register_mouse(m: Mouse1):
 	mouse = m
 	
 func add_life():
