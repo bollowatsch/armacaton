@@ -148,6 +148,12 @@ func get_trapped():
 func boost_mouse():
 	mouse.milk_sound.play()
 	mouse.increase_movespeed()
+	
+func game_won():
+	state = State.DEAD
+	mouse.cheese_sound.play()
+	await mouse.cheese_sound.finished
+	go_to_menu()
 
 func save_highscore(name: String, score: int):
 	var data = load_highscores()

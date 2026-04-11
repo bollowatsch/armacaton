@@ -14,5 +14,5 @@ func _on_area_entered(area):
 		collect()
 
 func collect():
-	GameManager.add_life()
-	queue_free() 
+	GameManager.game_won()
+	queue_free()
