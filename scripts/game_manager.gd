@@ -10,7 +10,8 @@ const SAVE_PATH = "user://highscores.json"
 const OFFSET_PER_LEVEL: Dictionary = {
 	1: Vector2.ZERO,
 	2: Vector2.ZERO,
-	3: Vector2(110, 0)
+	3: Vector2(110, 0),
+	4: Vector2.ZERO
 }
 
 const LEVEL_BONUS: int = 1000 # 1000 points pro Level
