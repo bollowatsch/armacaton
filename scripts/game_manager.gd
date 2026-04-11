@@ -86,7 +86,6 @@ func player_died():
 	if lives <= 0:
 		state = State.DEAD
 		mouse.play_dead()
-		level -= 1
 		go_to_menu()
 	else:
 		mouse.respawn(OFFSET_PER_LEVEL[level])
@@ -118,6 +117,18 @@ func register_mouse(m: Mouse1):
 func add_life():
 	lives += 1
 	emit_signal("lives_changed", lives)
+
+func reduce_life():
+	if(lives <= 2):
+		state = State.DEAD
+		mouse.play_dead()
+		go_to_menu()
+	else:
+		lives -= 2
+		emit_signal("lives_changed", lives)
+		mouse.respawn(OFFSET_PER_LEVEL[level])
+		
+	
 
 func collect_coin():
 	coins += 1

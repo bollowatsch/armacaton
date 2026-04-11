@@ -10,6 +10,7 @@ var size: Vector2
 
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func setup(spd: float, dir: Vector2, var_name: String):
 	speed = spd
@@ -19,6 +20,7 @@ func setup(spd: float, dir: Vector2, var_name: String):
 
 func _ready():
 	add_to_group("cat")
+	body_entered.connect(_on_body_entered)
 	viewport_size = get_viewport_rect().size
 	var frames = $AnimatedSprite2D.sprite_frames
 	size = frames.get_frame_texture("walk_right_white", 0).get_size()
@@ -58,7 +60,11 @@ func update_animation():
 		sprite.play("walk_down" + suffix)
 		sprite.flip_h = false
 		sprite.flip_v = direction.y < 0
-	
+
+func _on_body_entered(body):
+	if body is Mouse1:  # nur wenn Maus getroffen
+		audio.play()
+		
 #cat in	main dann erzeugen 
 #var cat1 = cat_scene.instantiate()
 #cat1.setup(100.0, Vector2.RIGHT, "brown")
