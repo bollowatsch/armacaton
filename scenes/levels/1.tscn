@@ -54,7 +54,7 @@ position = Vector2(1024, 0)
 variant = "brown"
 
 [node name="Cat4-3" parent="Lanes/Lane4" unique_id=1714846237 instance=ExtResource("2_x3ltn")]
-position = Vector2(392, 0)
+position = Vector2(336, 0)
 
 [node name="Lane5" parent="Lanes" unique_id=1835171055 instance=ExtResource("2_le1x0")]
 position = Vector2(-1, -2)
