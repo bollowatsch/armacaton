@@ -93,6 +93,7 @@ func respawn():
 	first_move = true
 	move_timer = 0.0
 	move_delay = MOVE_DELAY_START  # Geschwindigkeit zurücksetzen
+	play_walk()
 
 func get_just_pressed_vector() -> Vector2:
 	if Input.is_action_just_pressed("ui_up"):    return Vector2.UP
