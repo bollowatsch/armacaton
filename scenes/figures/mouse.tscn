@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://datnw0i2k6288" path="res://assets/explosion/explosion-1-b-6.png" id="8_pm8c8"]
 [ext_resource type="Texture2D" uid="uid://cuvsbgmj3nsr0" path="res://assets/explosion/explosion-1-b-7.png" id="9_pt5li"]
 [ext_resource type="Texture2D" uid="uid://bvjacogk4hcdk" path="res://assets/explosion/explosion-1-b-8.png" id="10_grnv2"]
+[ext_resource type="Texture2D" uid="uid://ccic3gtoh5a70" path="res://assets/Extras/trapped_1.png" id="11_bgws2"]
 [ext_resource type="AudioStream" uid="uid://8f3u4l2jfu60" path="res://assets/audio/meow.mp3" id="12_fc8lm"]
+[ext_resource type="Texture2D" uid="uid://bxoewi3pyqk2h" path="res://assets/Extras/trapped_2.png" id="12_ox2yx"]
 [ext_resource type="AudioStream" uid="uid://dpph1n8xwq4yt" path="res://assets/explosion/explosion_2.wav" id="14_teb80"]
 [ext_resource type="AudioStream" uid="uid://dw33s3l0ekrdw" path="res://assets/audio/coin_sound.mp3" id="15_5kyfm"]
 [ext_resource type="AudioStream" uid="uid://bnrxr3570ddav" path="res://assets/audio/trap_sound.mp3" id="16_grnv2"]
@@ -75,6 +77,14 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox2yx"]
 atlas = ExtResource("10_grnv2")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jesa6"]
+atlas = ExtResource("11_bgws2")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khnke"]
+atlas = ExtResource("12_ox2yx")
+region = Rect2(0, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwu33"]
 atlas = ExtResource("2_p4jw4")
@@ -165,6 +175,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jesa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khnke")
+}],
+"loop": false,
+"name": &"trapped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dwu33")
 }],
 "loop": true,
@@ -210,7 +231,7 @@ script = ExtResource("1_dwu33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1479972416]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_g7fkp")
-animation = &"walk_right"
+animation = &"trapped"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336859575]
 shape = SubResource("CircleShape2D_a56sk")
