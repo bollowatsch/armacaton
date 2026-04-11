@@ -3,12 +3,15 @@ extends CanvasLayer
 @onready var level_label: Label = $LevelLabel
 @onready var lives_label: Label = $LivesLabel
 @onready var switch_timer: ProgressBar = $SwitchTimer
+@onready var score_label: Label = $ScoreLabel
 
 func _ready():
 	add_to_group("hud")
 	
 	GameManager.lives_changed.connect(update_lives)
 	GameManager.level_changed.connect(update_level)
+	GameManager.score_changed.connect(update_score)
+
 	
 	update_lives(GameManager.lives)
 	update_level(GameManager.level)
@@ -26,3 +29,5 @@ func update_lives(new_lives: int):
 func update_timer(percent: float):
 	switch_timer.value = percent
 	
+func update_score(new_score: int):
+	score_label.text = "Score: %d" % new_score

@@ -5,16 +5,16 @@ func _ready() -> void:
 	_set_speeds()
 	
 	var state = GameManager.state
-	var label: String 
+	var label: String
 	match state:
 		GameManager.State.MENU:
 			label = 'WELCOME'
 		GameManager.State.DEAD:
 			label = 'GAME OVER'
-			$Screen/statisticsLabel.text = 'Levels completed: %d' % GameManager.level
+			$Screen/statisticsLabel.text = 'Score: %d' % GameManager.score
 		GameManager.State.WIN:
 			label = 'YOU WON'
-			$Screen/statisticsLabel.text = 'Levels completed: %d' % GameManager.level
+			$Screen/statisticsLabel.text = 'Score %d' % GameManager.score
 
 	
 	$Screen/conditionalLabel.text = label
