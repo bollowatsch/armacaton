@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://8f3u4l2jfu60" path="res://assets/audio/meow.mp3" id="12_fc8lm"]
 [ext_resource type="Script" uid="uid://dvpa2ojrw3obh" path="res://scripts/audio/meowAudio.gd" id="13_wihw5"]
 [ext_resource type="AudioStream" uid="uid://dpph1n8xwq4yt" path="res://assets/explosion/explosion_2.wav" id="14_teb80"]
+[ext_resource type="AudioStream" uid="uid://dw33s3l0ekrdw" path="res://assets/audio/coin_sound.mp3" id="15_5kyfm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a56sk"]
 atlas = ExtResource("2_4bd2j")
@@ -216,3 +217,6 @@ script = ExtResource("13_wihw5")
 
 [node name="Explosion" type="AudioStreamPlayer2D" parent="." unique_id=1157767297]
 stream = ExtResource("14_teb80")
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="." unique_id=805353884]
+stream = ExtResource("15_5kyfm")

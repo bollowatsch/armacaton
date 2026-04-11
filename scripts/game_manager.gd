@@ -135,6 +135,7 @@ func reduce_life():
 		
 	
 func collect_coin():
+	mouse.coin_sound.play()
 	coins += 1
 	emit_signal("coins_changed", coins)
 
