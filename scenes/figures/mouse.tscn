@@ -234,4 +234,4 @@ stream = ExtResource("17_grnv2")
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=881923029]
 stream = ExtResource("18_grnv2")
-volume_db = 20.0
+volume_db = 12.0
