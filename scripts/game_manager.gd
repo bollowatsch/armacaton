@@ -140,6 +140,7 @@ func collect_coin():
 	emit_signal("coins_changed", coins)
 
 func boost_mouse():
+	mouse.milk_sound.play()
 	mouse.increase_movespeed()
 
 func save_highscore(name: String, score: int):
