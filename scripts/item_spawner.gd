@@ -2,7 +2,7 @@ class_name ItemSpawner
 extends Node
 
 # Preload item scenes
-const CHEESE_SCENE = preload("res://scenes/figures/extra_1.tscn")
+const CHEESE_SCENE = preload("res://scenes/figures/cheese.tscn")
 const MILK_SCENE = preload("res://scenes/figures/milk_bottle.tscn")
 const TNT_SCENE = preload("res://scenes/figures/tnt.tscn")
 

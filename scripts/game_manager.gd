@@ -137,6 +137,9 @@ func collect_coin():
 	coins += 1
 	emit_signal("coins_changed", coins)
 
+func boost_mouse():
+	mouse.increase_movespeed()
+
 func save_highscore(name: String, score: int):
 	var data = load_highscores()
 	data.append({"name": name, "score": score})
