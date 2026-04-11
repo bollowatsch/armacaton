@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://olgww0nxut5y"]
 
-[ext_resource type="Script" uid="uid://damqoae3m4642" path="res://scripts/extra_1.gd" id="1_mgl2r"]
+[ext_resource type="Script" path="res://scripts/extra_1.gd" id="1_mgl2r"]
 [ext_resource type="Texture2D" uid="uid://c7fxkgffsffkn" path="res://assets/Extras/swiss.png" id="2_mgl2r"]
 [ext_resource type="Texture2D" uid="uid://dp3iqmc3bcvt5" path="res://assets/Extras/resized-32x32.png" id="3_dk4ot"]
 
