@@ -36,6 +36,7 @@ func player_died():
 	if lives <= 0:
 		state = State.DEAD
 		mouse.play_dead()
+		level -= 1
 		go_to_menu()
 	else:
 		# Spieler respawnen — Signal an mouse.gd
@@ -50,6 +51,7 @@ func player_reached_goal():
 	
 	if level > LEVELS_AVAILABLE:
 		state = State.WIN
+		level -= 1  # set level to last achieved one
 		go_to_menu()
 	else:
 		get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % level)
