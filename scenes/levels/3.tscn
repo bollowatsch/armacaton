@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cf1qfr7deff6p"]
 
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="1_7i6uk"]
-[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/music/8bit_battle02.wav" id="2_ppyrk"]
+[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/music/level3.wav" id="2_ppyrk"]
 [ext_resource type="Script" uid="uid://53qbve6qhw7i" path="res://scenes/levels/audio_stream_player_2d.gd" id="3_uiw71"]
 
 [node name="3" type="Node2D" unique_id=1551457001]
