@@ -6,7 +6,7 @@ func _ready() -> void:
 	pressed.connect(_on_button_pressed)
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % GameManager.LEVEL_START)
 	GameManager.start_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

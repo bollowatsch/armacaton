@@ -119,7 +119,7 @@ func add_life():
 	emit_signal("lives_changed", lives)
 
 func reduce_life():
-	if(lives <= 2):
+	if (lives <= 2):
 		state = State.DEAD
 		mouse.sprite.play("explodes")
 		await mouse.sprite.animation_finished
@@ -132,7 +132,6 @@ func reduce_life():
 		mouse.respawn(OFFSET_PER_LEVEL[level])
 		
 	
-
 func collect_coin():
 	coins += 1
 	emit_signal("coins_changed", coins)
