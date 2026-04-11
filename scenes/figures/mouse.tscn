@@ -12,11 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cuvsbgmj3nsr0" path="res://assets/explosion/explosion-1-b-7.png" id="9_pt5li"]
 [ext_resource type="Texture2D" uid="uid://bvjacogk4hcdk" path="res://assets/explosion/explosion-1-b-8.png" id="10_grnv2"]
 [ext_resource type="AudioStream" uid="uid://8f3u4l2jfu60" path="res://assets/audio/meow.mp3" id="12_fc8lm"]
-[ext_resource type="Script" path="res://scripts/audio/meowAudio.gd" id="13_wihw5"]
-[ext_resource type="AudioStream" uid="uid://dpph1n8xwq4yt" path="res://assets/explosion/explosion_2.wav" id="14_teb80"]
-[ext_resource type="AudioStream" uid="uid://dw33s3l0ekrdw" path="res://assets/audio/coin_sound.mp3" id="15_5kyfm"]
-[ext_resource type="AudioStream" uid="uid://dikpp5jfv7it1" path="res://assets/audio/milk_sound.mp3" id="16_pm8c8"]
-[ext_resource type="AudioStream" uid="uid://bnrxr3570ddav" path="res://assets/audio/trap_sound.mp3" id="17_pt5li"]
 [ext_resource type="AudioStream" uid="uid://dpph1n8xwq4yt" path="res://assets/explosion/explosion_2.wav" id="14_teb80"]
 [ext_resource type="AudioStream" uid="uid://dw33s3l0ekrdw" path="res://assets/audio/coin_sound.mp3" id="15_5kyfm"]
 [ext_resource type="AudioStream" uid="uid://dikpp5jfv7it1" path="res://assets/audio/milk_sound.mp3" id="16_pm8c8"]
@@ -238,3 +233,4 @@ stream = ExtResource("17_pt5li")
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=881923029]
 stream = ExtResource("18_grnv2")
+volume_db = 20.0
