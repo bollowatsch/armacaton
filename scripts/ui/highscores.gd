@@ -80,11 +80,11 @@ func _setup_node_references():
 
 	if has_node("UI/titleLabel"):
 		title_label = $UI/titleLabel
-		title_label.text = "HIGH SCORES"
+		title_label.text = "Highscores"
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	elif has_node("Screen/titleLabel"):
 		title_label = $Screen/titleLabel
-		title_label.text = "HIGH SCORES"
+		title_label.text = "Highscores"
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
 func _is_highscore(score: int, highscores: Array) -> bool:
