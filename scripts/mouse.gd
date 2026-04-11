@@ -81,13 +81,14 @@ func _process(delta: float) -> void:
 func move(dir: Vector2):
 	var new_target = target_position + dir * TILE_SIZE
 	
+	if GameManager.level != 3 and new_target.y <= 0 or GameManager.level == 3 and new_target.x + sprite_size.x / 2 > width:
+		GameManager.player_reached_goal()
+		return
 	if new_target.x < sprite_size.x / 2 or new_target.x + sprite_size.x / 2 > width:
 		return
 	if new_target.y > height - sprite_size.y / 2:
 		return
-	if new_target.y <= 0:
-		GameManager.player_reached_goal()
-		return
+
 	
 	target_position = new_target
 	is_moving = true
