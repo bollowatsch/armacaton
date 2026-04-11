@@ -8,12 +8,12 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("mouse"):
-		reduce_lives()
+		mouse_trapped()
 
 func _on_area_entered(area):
 	if area.is_in_group("mouse"):
-		reduce_lives()
+		mouse_trapped()
 
-func reduce_lives():
-	GameManager.reduce_life()
+func mouse_trapped():
+	GameManager.get_trapped()
 	queue_free()
