@@ -5,11 +5,10 @@
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="2_rwkk4"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="2_x3ltn"]
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="3_4o7q8"]
-[ext_resource type="PackedScene" uid="uid://8lwt1wncjwwc" path="res://scenes/figures/trap.tscn" id="3_ql3nd"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
 [ext_resource type="PackedScene" uid="uid://de0ibcyqgveak" path="res://scenes/figures/heart.tscn" id="6_x6e36"]
 [ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="7_kpjit"]
-[ext_resource type="Script" path="res://scripts/audio/level.gd" id="8_ijh0y"]
+[ext_resource type="Script" uid="uid://bh2gtg2q358as" path="res://scripts/audio/level.gd" id="8_ijh0y"]
 
 [node name="1" type="Node2D" unique_id=1193287785]
 script = ExtResource("1_0absb")
@@ -30,9 +29,6 @@ variant = "brown"
 
 [node name="Cat1-2" parent="Lanes/Lane" unique_id=1690484386 instance=ExtResource("2_x3ltn")]
 position = Vector2(936, 0)
-
-[node name="Trap" parent="Lanes" unique_id=1752709135 instance=ExtResource("3_ql3nd")]
-position = Vector2(578.99994, 666.99994)
 
 [node name="Lane2" parent="Lanes" unique_id=940862492 instance=ExtResource("2_le1x0")]
 position = Vector2(-9, 446)
