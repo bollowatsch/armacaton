@@ -22,16 +22,16 @@ region = Rect2(1152, 363, 384, 330)
 [sub_resource type="SpriteFrames" id="SpriteFrames_kkikc"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_qyhcr")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_h2d05")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_lw08g")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_ckxli")
 }],
 "loop": true,
@@ -51,7 +51,7 @@ script = ExtResource("1_qyhcr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1970777317]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_kkikc")
-frame_progress = 0.84650415
+frame_progress = 0.06354422
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=451168497]
 position = Vector2(2, 2)
