@@ -6,7 +6,7 @@ const POWERUPS = [
 		"name": "Cheese",
 		"texture": "res://assets/Extras/swiss.png",
 		"atlas_region": null,
-		"description": "+1 Life"
+		"description": "Goal"
 	},
 	{
 		"name": "Milk",
@@ -17,7 +17,7 @@ const POWERUPS = [
 	{
 		"name": "Coin",
 		"texture": "res://assets/Extras/coin2_20x20.png",
-		"atlas_region": Rect2(0, 0, 20, 20),  # Nur erstes Frame vom Spritesheet
+		"atlas_region": Rect2(0, 0, 20, 20), # Nur erstes Frame vom Spritesheet
 		"description": "Bonus Points"
 	},
 	{
@@ -25,6 +25,12 @@ const POWERUPS = [
 		"texture": "res://assets/Extras/pixel_art.png",
 		"atlas_region": null,
 		"description": "-2 Lives"
+	},
+	{
+		"name": "Trap",
+		"texture": "res://assets/Extras/resized-64x64-2.png",
+		"atlas_region": null,
+		"description": "Instant Death"
 	}
 ]
 
