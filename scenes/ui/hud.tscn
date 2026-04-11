@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4mnvxoncq4ai"]
 
 [ext_resource type="Script" uid="uid://c1s1gm0a7qh3" path="res://scripts/hud.gd" id="1_0mwgc"]
+[ext_resource type="Script" uid="uid://58qc0hbgmkwm" path="res://scenes/ui/switch_timer.gd" id="2_hqnrr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wh2we"]
 font_size = 30
@@ -8,46 +9,77 @@ font_size = 30
 [node name="HUD" type="CanvasLayer" unique_id=1366411508]
 script = ExtResource("1_0mwgc")
 
-[node name="LevelLabel" type="Label" parent="." unique_id=1459695053]
-offset_left = 20.0
-offset_right = 128.0
-offset_bottom = 60.0
-theme_override_font_sizes/font_size = 50
-text = "Level: 1"
-label_settings = SubResource("LabelSettings_wh2we")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2038500671]
+offset_right = 1280.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.6784314)
 
-[node name="LivesLabel" type="Label" parent="." unique_id=1392501182]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -80.0
-offset_right = -20.0
-offset_bottom = 42.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "3"
-label_settings = SubResource("LabelSettings_wh2we")
-
-[node name="SwitchTimer" type="ProgressBar" parent="." unique_id=1531953101]
-custom_minimum_size = Vector2(200, 30)
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=829342726]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.0
-offset_top = 5.0
-offset_right = 100.0
-offset_bottom = 35.0
-grow_horizontal = 2
-value = 100.0
-
-[node name="ScoreLabel" type="Label" parent="." unique_id=798345079]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1009.0
-offset_right = -913.0
+offset_left = -640.0
+offset_right = 640.0
 offset_bottom = 42.0
-grow_horizontal = 0
+grow_horizontal = 2
+alignment = 1
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer" unique_id=1459695053]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Level: 1"
+label_settings = SubResource("LabelSettings_wh2we")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="HBoxContainer" unique_id=1392501182]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3"
+label_settings = SubResource("LabelSettings_wh2we")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SwitchTimer" type="ProgressBar" parent="HBoxContainer" unique_id=1531953101]
+custom_minimum_size = Vector2(200, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+show_percentage = false
+script = ExtResource("2_hqnrr")
+
+[node name="TimerLabel" type="Label" parent="HBoxContainer/SwitchTimer" unique_id=196738264]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -12.5
+offset_right = 100.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="CoinLabel" type="Label" parent="HBoxContainer" unique_id=1102495258]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "Score: "
 label_settings = SubResource("LabelSettings_wh2we")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer" unique_id=798345079]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Score: "
+label_settings = SubResource("LabelSettings_wh2we")
+horizontal_alignment = 1
+vertical_alignment = 1

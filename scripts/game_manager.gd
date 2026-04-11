@@ -11,8 +11,8 @@ const OFFSET_PER_LEVEL: Dictionary = {
 	3: Vector2(110, 0)
 }
 
-const LEVEL_BONUS: int = 1000 # 100 points pro Level
-const COIN_BONUS: int = 150
+const LEVEL_BONUS: int = 1000 # 1000 points pro Level
+const COIN_BONUS: int = 300
 const LIVES_BONUS: int = 500
 const TIME_PENALTY: float = 2.0 # Punkte pro Sekunde
 
@@ -35,6 +35,7 @@ var mouse: Mouse1
 signal lives_changed(new_lives)
 signal level_changed(new_level)
 signal score_changed(new_score)
+signal coins_changed(new_coins)
 
 func _ready() -> void:
 	state = State.MENU
@@ -68,6 +69,8 @@ func start_game():
 	elapsed_time = 0.0
 	emit_signal("lives_changed", lives)
 	emit_signal("level_changed", level)
+	emit_signal("score_changed", score)
+	emit_signal("coins_changed", coins)
 
 func player_died():
 	if state != State.PLAYING:
@@ -125,4 +128,3 @@ func reduce_life():
 func collect_coin():
 	coins += 1
 	emit_signal("coins_changed", coins)
-	emit_signal("score_changed", score)
