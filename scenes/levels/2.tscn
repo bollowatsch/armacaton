@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="2_6k4c4"]
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="4_mp0kl"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="5_souht"]
+[ext_resource type="Script" uid="uid://bh2gtg2q358as" path="res://scripts/audio/level.gd" id="7_souht"]
 [ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="7_wk5vn"]
-[ext_resource type="Script" uid="uid://bgy7vwxapuuf3" path="res://scripts/audio/levelAudio.gd" id="8_wk5vn"]
 
 [node name="2" type="Node2D" unique_id=31887791]
 script = ExtResource("1_mp0kl")
@@ -75,6 +75,6 @@ tile_set = ExtResource("1_mpdjq")
 
 [node name="Mouse" parent="." unique_id=278071180 instance=ExtResource("2_6k4c4")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=367702228]
+[node name="Level" type="AudioStreamPlayer2D" parent="." unique_id=287185216]
 stream = ExtResource("7_wk5vn")
-script = ExtResource("8_wk5vn")
+script = ExtResource("7_souht")

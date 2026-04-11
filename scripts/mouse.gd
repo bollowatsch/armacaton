@@ -2,11 +2,16 @@ class_name Mouse1
 extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var meow_sound: AudioStreamPlayer2D = $Meow
 @onready var hit_sound: AudioStreamPlayer2D = $Explosion
 @onready var coin_sound: AudioStreamPlayer2D = $Coin
 @onready var milk_sound: AudioStreamPlayer2D = $Milk
+<<<<<<< HEAD
 @onready var trap_sound: AudioStreamPlayer2D = $Trap
+=======
+@onready var cheese_sound: AudioStreamPlayer2D = $Cheese
+@onready var game_over_sound: AudioStreamPlayer2D = $GameOver
+>>>>>>> 109c3b7061cf3a839120f8a7deb604e4bae4771c
 
 var width: float
 var height: float
@@ -79,13 +84,14 @@ func _process(delta: float) -> void:
 func move(dir: Vector2):
 	var new_target = target_position + dir * TILE_SIZE
 	
+	if GameManager.level != 3 and new_target.y <= 0 or GameManager.level == 3 and new_target.x + sprite_size.x / 2 > width:
+		GameManager.player_reached_goal()
+		return
 	if new_target.x < sprite_size.x / 2 or new_target.x + sprite_size.x / 2 > width:
 		return
 	if new_target.y > height - sprite_size.y / 2:
 		return
-	if new_target.y <= 0:
-		GameManager.player_reached_goal()
-		return
+
 	
 	target_position = new_target
 	is_moving = true
@@ -101,7 +107,11 @@ func respawn(offset: Vector2 = Vector2.ZERO):
 	move_timer = 0.0
 	move_delay = MOVE_DELAY_START # Geschwindigkeit zurücksetzen
 	move_speed = 300.0
-	play_walk()
+	print("Level: %d" % GameManager.level)
+	if GameManager.level != 3:
+		play_walk()
+	else:
+		play_walk_right()
 
 func get_just_pressed_vector() -> Vector2:
 	if Input.is_action_just_pressed("ui_up"): return Vector2.UP
@@ -119,12 +129,16 @@ func get_held_vector() -> Vector2:
 
 func _on_area_entered(area: Area2D):
 	if area.is_in_group("cat"):
-		audio.play()
+		meow_sound.play()
 		GameManager.player_died()
 
 func play_walk():
 	if sprite.animation != "walk_up":
 		sprite.play("walk_up")
+
+func play_walk_right():
+	if sprite.animation != "walk_right":
+		sprite.play("walk_right")
 
 func play_idle():
 	if sprite.animation != "idle":

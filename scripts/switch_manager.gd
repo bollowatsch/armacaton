@@ -21,6 +21,10 @@ func _process(delta):
 	if time_until_switch <= 0:
 		trigger_switch()
 
+func reset() -> void:
+	current_mode = Mode.NORMAL
+	time_until_switch = last_time_until_switch
+
 func trigger_switch():
 	# Zufälligen neuen Modus wählen (nicht den aktuellen)
 	var modes = Mode.values()
