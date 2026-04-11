@@ -5,6 +5,8 @@ const LIVES_START: int = 5
 const LEVEL_START: int = 1
 const LEVELS_AVAILABLE: int = 2
 
+const SAVE_PATH = "user://highscores.json"
+
 const OFFSET_PER_LEVEL: Dictionary = {
 	1: Vector2.ZERO,
 	2: Vector2.ZERO,
@@ -41,7 +43,7 @@ func _ready() -> void:
 	state = State.MENU
 
 func _process(delta: float) -> void:
-	if not is_timing:
+	if not is_timing or state != State.PLAYING:
 		return
 
 	elapsed_time += delta
@@ -104,7 +106,10 @@ func player_reached_goal():
 		mouse.respawn(OFFSET_PER_LEVEL[level])
 
 func go_to_menu():
-	get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
+	if state == State.WIN or state == State.DEAD:
+		get_tree().change_scene_to_file("res://scenes/ui/highscores.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
 
 func register_mouse(m: Mouse1):
 	mouse = m
@@ -131,3 +136,30 @@ func reduce_life():
 func collect_coin():
 	coins += 1
 	emit_signal("coins_changed", coins)
+
+func save_highscore(name: String, score: int):
+	var data = load_highscores()
+	data.append({"name": name, "score": score})
+	
+	# Nach Score sortieren
+	data.sort_custom(func(a, b): return a.score > b.score)
+	
+	if data.size() > 10:
+		data.resize(10)
+	
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
+	file.close()
+
+func load_highscores() -> Array:
+	if not FileAccess.file_exists(SAVE_PATH):
+		return []
+	
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var content = file.get_as_text()
+	file.close()
+	
+	var parsed = JSON.parse_string(content)
+	if parsed == null:
+		return []
+	return parsed
