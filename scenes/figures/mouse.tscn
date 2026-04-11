@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://datnw0i2k6288" path="res://assets/explosion/explosion-1-b-6.png" id="8_pm8c8"]
 [ext_resource type="Texture2D" uid="uid://cuvsbgmj3nsr0" path="res://assets/explosion/explosion-1-b-7.png" id="9_pt5li"]
 [ext_resource type="Texture2D" uid="uid://bvjacogk4hcdk" path="res://assets/explosion/explosion-1-b-8.png" id="10_grnv2"]
-[ext_resource type="AudioStream" uid="uid://8f3u4l2jfu60" path="res://assets/music/meow.mp3" id="12_fc8lm"]
-[ext_resource type="Script" uid="uid://cowfebxtkqnhu" path="res://scenes/figures/audio_stream_player_2d.gd" id="13_wihw5"]
+[ext_resource type="AudioStream" uid="uid://8f3u4l2jfu60" path="res://assets/audio/meow.mp3" id="12_fc8lm"]
+[ext_resource type="Script" uid="uid://dvpa2ojrw3obh" path="res://scripts/audio/meowAudio.gd" id="13_wihw5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a56sk"]
 atlas = ExtResource("2_4bd2j")

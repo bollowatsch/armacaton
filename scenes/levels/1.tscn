@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="2_x3ltn"]
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="3_4o7q8"]
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="4_f00r8"]
-[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/music/level.wav" id="10_djhl7"]
-[ext_resource type="Script" path="res://scenes/levels/audio_stream_player_2d.gd" id="11_kekgo"]
+[ext_resource type="Script" uid="uid://bgy7vwxapuuf3" path="res://scripts/audio/levelAudio.gd" id="8_ijh0y"]
+[ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="10_djhl7"]
 
 [node name="1" type="Node2D" unique_id=1193287785]
 script = ExtResource("1_0absb")
@@ -81,4 +81,4 @@ position = Vector2(576, 992)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1021074326]
 stream = ExtResource("10_djhl7")
-script = ExtResource("11_kekgo")
+script = ExtResource("8_ijh0y")
