@@ -122,13 +122,16 @@ vertical_alignment = 1
 [node name="legend" type="Control" parent="." unique_id=991756951]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 657.0
+offset_right = 697.0
 offset_bottom = 40.0
 
 [node name="PowerupLegend" type="PanelContainer" parent="legend" unique_id=1723055286]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 305.0
+offset_top = 308.0
+offset_right = 359.0
+offset_bottom = 348.0
 script = ExtResource("6_15og1")
 
 [connection signal="pressed" from="Screen/highscoresButton" to="." method="_on_highscores_button_pressed"]
