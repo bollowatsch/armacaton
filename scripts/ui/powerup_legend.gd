@@ -27,6 +27,12 @@ const POWERUPS = [
 		"description": "+1 Life"
 	},
 	{
+		"name": "Cat",
+		"texture": "res://assets/cat/cat 1.6.png",
+		"atlas_region": Rect2(0, 192, 32, 32),  # Katze nach rechts schauend
+		"description": "-1 Life"
+	},
+	{
 		"name": "TNT",
 		"texture": "res://assets/Extras/pixel_art.png",
 		"atlas_region": Rect2(20, 0, 30, 30),
