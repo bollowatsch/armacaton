@@ -122,12 +122,14 @@ func reduce_life():
 	if(lives <= 2):
 		state = State.DEAD
 		mouse.sprite.play("explodes")
+		mouse.hit_sound.play()
 		await mouse.sprite.animation_finished
 		go_to_menu()
 	else:
 		lives -= 2
 		emit_signal("lives_changed", lives)
 		mouse.sprite.play("explodes")
+		mouse.hit_sound.play()
 		await mouse.sprite.animation_finished
 		mouse.respawn(OFFSET_PER_LEVEL[level])
 		
