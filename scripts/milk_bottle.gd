@@ -14,4 +14,5 @@ func _on_area_entered(area):
 		collect()
 
 func collect():
-	print("collect coins")
+	GameManager.collect_coin()
+	queue_free() 
