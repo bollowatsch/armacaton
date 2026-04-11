@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bfybglr3x08xw"]
 
 [ext_resource type="TileSet" uid="uid://dt0f43tmbklcg" path="res://assets/tiles/tiles.tres" id="1_7i6uk"]
-[ext_resource type="Script" uid="uid://b3yroks71bfh3" path="res://scripts/levels/level3.gd" id="1_sc0rx"]
+[ext_resource type="Script" path="res://scripts/levels/level3.gd" id="1_sc0rx"]
 [ext_resource type="PackedScene" uid="uid://c4mnvxoncq4ai" path="res://scenes/ui/hud.tscn" id="2_2n3hm"]
 [ext_resource type="AudioStream" uid="uid://cfhq0o5bnwprt" path="res://assets/audio/level.wav" id="2_ppyrk"]
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="4_cddsv"]

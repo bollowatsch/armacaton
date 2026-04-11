@@ -85,7 +85,9 @@ func player_died():
 	
 	if lives <= 0:
 		state = State.DEAD
+		mouse.game_over_sound.play()
 		mouse.play_dead()
+
 		go_to_menu()
 	else:
 		mouse.respawn(OFFSET_PER_LEVEL[level])
@@ -117,6 +119,7 @@ func register_mouse(m: Mouse1):
 func add_life():
 	lives += 1
 	emit_signal("lives_changed", lives)
+	mouse.cheese_sound.play()
 
 func reduce_life():
 	if (lives <= 2):
