@@ -138,6 +138,12 @@ func collect_coin():
 	mouse.coin_sound.play()
 	coins += 1
 	emit_signal("coins_changed", coins)
+	
+func get_trapped():
+		state = State.DEAD
+		mouse.trap_sound.play()
+		await mouse.trap_sound.finished
+		go_to_menu()
 
 func boost_mouse():
 	mouse.milk_sound.play()

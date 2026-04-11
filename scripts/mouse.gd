@@ -6,6 +6,7 @@ extends Area2D
 @onready var hit_sound: AudioStreamPlayer2D = $Explosion
 @onready var coin_sound: AudioStreamPlayer2D = $Coin
 @onready var milk_sound: AudioStreamPlayer2D = $Milk
+@onready var trap_sound: AudioStreamPlayer2D = $Trap
 
 var width: float
 var height: float
@@ -30,7 +31,6 @@ const MIN_MOVE_SPEED: float = 100.0
 func _ready():
 	add_to_group("mouse")
 	sprite.play("walk_up")
-	add_to_group("mouse")
 	area_entered.connect(_on_area_entered)
 	
 	width = get_viewport_rect().size.x
