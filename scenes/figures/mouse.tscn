@@ -253,7 +253,7 @@ stream = ExtResource("16_grnv2")
 
 [node name="Cheese" type="AudioStreamPlayer2D" parent="." unique_id=1544090309]
 stream = ExtResource("17_grnv2")
-volume_db = 10.0
+volume_db = 24.0
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=881923029]
 stream = ExtResource("18_grnv2")
