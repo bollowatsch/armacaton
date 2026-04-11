@@ -14,5 +14,5 @@ func _on_area_entered(area):
 		collect()
 
 func collect():
-	GameManager.boost_mouse()
+	GameManager.collect_coin()
 	queue_free() 
