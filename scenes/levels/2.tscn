@@ -34,6 +34,7 @@ position = Vector2(-1, 574)
 
 [node name="Cat1-1" parent="Lanes/Lane" unique_id=126695096 instance=ExtResource("5_souht")]
 position = Vector2(216, 0)
+variant = "white"
 
 [node name="Cat1-2" parent="Lanes/Lane" unique_id=382245764 instance=ExtResource("5_souht")]
 position = Vector2(800, 0)
@@ -44,6 +45,7 @@ position = Vector2(-9, 382)
 
 [node name="Cat2-1" parent="Lanes/Lane2" unique_id=384027394 instance=ExtResource("5_souht")]
 position = Vector2(424, 0)
+variant = "white"
 
 [node name="Lane4" parent="Lanes" unique_id=2071618473 instance=ExtResource("4_mp0kl")]
 position = Vector2(15, -2)
@@ -58,6 +60,7 @@ variant = "brown"
 
 [node name="Cat4-3" parent="Lanes/Lane4" unique_id=128624319 instance=ExtResource("5_souht")]
 position = Vector2(248, 0)
+variant = "white"
 
 [node name="Cat4-4" parent="Lanes/Lane4" unique_id=1290221342 instance=ExtResource("5_souht")]
 position = Vector2(784, 0)

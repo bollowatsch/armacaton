@@ -5,7 +5,7 @@ extends Area2D
 
 var speed := 100.0
 var direction := Vector2.RIGHT
-var width := 0
+var viewport_size : Vector2
 var size: Vector2
 
 
@@ -19,7 +19,7 @@ func setup(spd: float, dir: Vector2, var_name: String):
 
 func _ready():
 	add_to_group("cat")
-	width = get_viewport_rect().size.x
+	viewport_size = get_viewport_rect().size
 	var frames = $AnimatedSprite2D.sprite_frames
 	size = frames.get_frame_texture("walk_right_white", 0).get_size()
 	update_animation()
@@ -27,8 +27,15 @@ func _ready():
 func _process(delta):
 	position += direction * speed * delta
 	
-	if position.x > width + size.x:
+	if position.x > viewport_size.x + (size.x*2) && direction == Vector2.RIGHT:
 		position.x = -(size.x/2.0)
+	elif position.x < 0 && direction == Vector2.LEFT:
+		position.x = viewport_size.x + size.x
+	
+	if position.y > viewport_size.y + size.y && direction == Vector2.DOWN:
+		position.y = -size.y
+	elif position.y < -size.y && direction == Vector2.UP:
+		position.y = viewport_size.y + size.y
 
 func update_animation():
 	var suffix = ""
@@ -38,11 +45,15 @@ func update_animation():
 		suffix = "_white"
 	elif variant == "black":
 		suffix = "_black"
-
-	if direction.x != 0:
+	
+	if direction == Vector2.RIGHT:
 		sprite.play("walk_right" + suffix)
-		sprite.flip_h = direction.x < 0
-		sprite.flip_v = false
+		#sprite.flip_h = direction.x < 0
+		#sprite.flip_v = false
+	elif direction == Vector2.LEFT:
+		sprite.play("walk_left" + suffix)
+	elif direction == Vector2.DOWN:
+		sprite.play("walk_down" + suffix)
 	else:
 		sprite.play("walk_down" + suffix)
 		sprite.flip_h = false
