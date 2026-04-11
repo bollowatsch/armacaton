@@ -6,6 +6,7 @@ extends Area2D
 @onready var hit_sound: AudioStreamPlayer2D = $Explosion
 @onready var coin_sound: AudioStreamPlayer2D = $Coin
 @onready var milk_sound: AudioStreamPlayer2D = $Milk
+@onready var trap_sound: AudioStreamPlayer2D = $Trap
 @onready var cheese_sound: AudioStreamPlayer2D = $Cheese
 @onready var game_over_sound: AudioStreamPlayer2D = $GameOver
 
@@ -32,7 +33,6 @@ const MIN_MOVE_SPEED: float = 100.0
 func _ready():
 	add_to_group("mouse")
 	sprite.play("walk_up")
-	add_to_group("mouse")
 	area_entered.connect(_on_area_entered)
 	
 	width = get_viewport_rect().size.x
@@ -40,7 +40,7 @@ func _ready():
 
 	move_speed = 300.0
 	
-	GameManager.register_mouse(self )
+	GameManager.register_mouse(self)
 	
 	var frames = $AnimatedSprite2D.sprite_frames
 	sprite_size = frames.get_frame_texture("waits", 0).get_size()

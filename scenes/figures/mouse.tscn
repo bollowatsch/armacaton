@@ -225,8 +225,12 @@ stream = ExtResource("15_5kyfm")
 [node name="Milk" type="AudioStreamPlayer2D" parent="." unique_id=1240185487]
 stream = ExtResource("16_pm8c8")
 
+[node name="Trap" type="AudioStreamPlayer2D" parent="." unique_id=632787431]
+stream = ExtResource("17_pt5li")
+
 [node name="Cheese" type="AudioStreamPlayer2D" parent="." unique_id=1544090309]
 stream = ExtResource("17_pt5li")
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=881923029]
 stream = ExtResource("18_grnv2")
+volume_db = 20.0

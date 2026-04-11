@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var hit_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready():
 	$AnimatedSprite2D.play("default")

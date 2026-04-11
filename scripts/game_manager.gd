@@ -2,7 +2,7 @@ extends Node
 
 # CONSTANTS
 const LIVES_START: int = 5
-const LEVEL_START: int = 1
+const LEVEL_START: int = 3
 const LEVELS_AVAILABLE: int = 3
 
 const SAVE_PATH = "user://highscores.json"
@@ -10,7 +10,7 @@ const SAVE_PATH = "user://highscores.json"
 const OFFSET_PER_LEVEL: Dictionary = {
 	1: Vector2.ZERO,
 	2: Vector2.ZERO,
-	3: Vector2(-540, -500)
+	3: Vector2(110, 0)
 }
 
 const LEVEL_BONUS: int = 1000 # 1000 points pro Level
@@ -85,9 +85,7 @@ func player_died():
 	
 	if lives <= 0:
 		state = State.DEAD
-		mouse.game_over_sound.play()
 		mouse.play_dead()
-
 		go_to_menu()
 	else:
 		mouse.respawn(OFFSET_PER_LEVEL[level])
@@ -109,6 +107,8 @@ func player_reached_goal():
 
 func go_to_menu():
 	if state == State.WIN or state == State.DEAD:
+		mouse.game_over_sound.play()
+		await mouse.game_over_sound.finished
 		get_tree().change_scene_to_file("res://scenes/ui/highscores.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/ui/mainScreen.tscn")
@@ -119,7 +119,6 @@ func register_mouse(m: Mouse1):
 func add_life():
 	lives += 1
 	emit_signal("lives_changed", lives)
-	mouse.cheese_sound.play()
 
 func reduce_life():
 	if (lives <= 2):
@@ -141,6 +140,12 @@ func collect_coin():
 	mouse.coin_sound.play()
 	coins += 1
 	emit_signal("coins_changed", coins)
+	
+func get_trapped():
+		state = State.DEAD
+		mouse.trap_sound.play()
+		await mouse.trap_sound.finished
+		go_to_menu()
 
 func boost_mouse():
 	mouse.milk_sound.play()
