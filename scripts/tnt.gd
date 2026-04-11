@@ -15,3 +15,4 @@ func _on_area_entered(area):
 
 func reduce_lives():
 	GameManager.reduce_life()
+	queue_free()

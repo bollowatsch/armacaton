@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bugshtj3drjfy" path="res://scenes/figures/mouse.tscn" id="2_6k4c4"]
 [ext_resource type="PackedScene" uid="uid://cewu3b80jcgsv" path="res://scenes/world/lane.tscn" id="4_mp0kl"]
 [ext_resource type="PackedScene" uid="uid://cxbq8x56ungnc" path="res://scenes/figures/cat.tscn" id="5_souht"]
-[ext_resource type="PackedScene" uid="uid://cxk7fvl2v3le3" path="res://scenes/figures/tnt.tscn" id="7_souht"]
 
 [node name="2" type="Node2D" unique_id=31887791]
 script = ExtResource("1_mp0kl")
@@ -38,9 +37,6 @@ position = Vector2(424, 0)
 
 [node name="Lane4" parent="Lanes" unique_id=2071618473 instance=ExtResource("4_mp0kl")]
 position = Vector2(15, -2)
-
-[node name="Area2D" parent="Lanes/Lane4" unique_id=1652579047 instance=ExtResource("7_souht")]
-position = Vector2(568, -36)
 
 [node name="Cat4-1" parent="Lanes/Lane4" unique_id=1381334006 instance=ExtResource("5_souht")]
 position = Vector2(88, 0)
