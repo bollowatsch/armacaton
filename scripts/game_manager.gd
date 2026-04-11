@@ -2,7 +2,7 @@ extends Node
 
 # CONSTANTS
 const LIVES_START: int = 5
-const LEVEL_START: int = 4
+const LEVEL_START: int = 1
 const LEVELS_AVAILABLE: int = 4
 
 const SAVE_PATH = "user://highscores.json"
