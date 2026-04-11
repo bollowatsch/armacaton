@@ -2,7 +2,7 @@ extends Node
 
 # CONSTANTS
 const LIVES_START: int = 5
-const LEVEL_START: int = 1
+const LEVEL_START: int = 3
 const LEVELS_AVAILABLE: int = 3
 
 const SAVE_PATH = "user://highscores.json"
@@ -73,6 +73,7 @@ func start_game():
 	emit_signal("level_changed", level)
 	emit_signal("score_changed", score)
 	emit_signal("coins_changed", coins)
+	SwitchManager.reset()
 
 func player_died():
 	if state != State.PLAYING:
