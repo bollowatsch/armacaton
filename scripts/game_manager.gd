@@ -2,7 +2,7 @@ extends Node
 
 # CONSTANTS
 const LIVES_START: int = 5
-const LEVEL_START: int = 1
+const LEVEL_START: int = 4
 const LEVELS_AVAILABLE: int = 4
 
 const SAVE_PATH = "user://highscores.json"
@@ -98,16 +98,19 @@ func player_reached_goal():
 	level += 1
 	emit_signal("level_changed", level)
 	
-	if level > LEVELS_AVAILABLE:
-		state = State.WIN
-		level -= 1 # set level to last achieved one
-		go_to_menu()
+	if level > LEVELS_AVAILABLE: # stay in last level
+		level -= 1
+		return
 	else:
 		get_tree().change_scene_to_file("res://scenes/levels/%d.tscn" % level)
 		mouse.respawn(OFFSET_PER_LEVEL[level])
 
 func go_to_menu():
-	if state == State.WIN or state == State.DEAD:
+	if state == State.WIN:
+		mouse.cheese_sound.play()
+		await mouse.cheese_sound.finished
+		get_tree().change_scene_to_file("res://scenes/ui/highscores.tscn")
+	elif state == State.DEAD:
 		mouse.game_over_sound.play()
 		await mouse.game_over_sound.finished
 		get_tree().change_scene_to_file("res://scenes/ui/highscores.tscn")
@@ -155,9 +158,7 @@ func boost_mouse():
 	mouse.increase_movespeed()
 	
 func game_won():
-	state = State.DEAD
-	mouse.cheese_sound.play()
-	await mouse.cheese_sound.finished
+	state = State.WIN
 	go_to_menu()
 
 func save_highscore(name: String, score: int):
