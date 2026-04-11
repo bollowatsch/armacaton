@@ -16,10 +16,10 @@ var spawn_config: Dictionary = {
 # Screen bounds
 var screen_width: float
 var screen_height: float
-var margin: float = 30.0  # Abstand vom Rand
-var lane_start_y: float = 100.0  # Wo die Lanes beginnen
-var lane_end_y: float = 900.0    # Wo die Lanes enden
-var safe_zone_height: float = 80.0  # Sichere Zone am Boden für Respawn
+var margin: float = 30.0 # Abstand vom Rand
+var lane_start_y: float = 100.0 # Wo die Lanes beginnen
+var lane_end_y: float = 900.0 # Wo die Lanes enden
+var safe_zone_height: float = 80.0 # Sichere Zone am Boden für Respawn
 
 # Container für gespawnte Items
 var items_container: Node2D
@@ -60,7 +60,6 @@ func _spawn_item(scene: PackedScene, type: String):
 	var pos = _get_random_position()
 	item.position = pos
 	items_container.add_child(item)
-	print("Spawned %s at position %s" % [type, pos])
 
 func _get_random_position() -> Vector2:
 	# Zufällige Position im spielbaren Bereich
