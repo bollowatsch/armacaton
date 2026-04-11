@@ -151,6 +151,8 @@ func get_trapped():
 		state = State.DEAD
 		mouse.trap_sound.play()
 		mouse.sprite.play("trapped")
+		GameManager.lives = 0
+		GameManager.calculate_score()
 		await mouse.trap_sound.finished
 		go_to_menu()
 
